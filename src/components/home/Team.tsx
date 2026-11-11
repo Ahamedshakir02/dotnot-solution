@@ -2,14 +2,14 @@ import Image from "next/image";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { cn } from "@/lib/cn";
 
-type Person = { initials: string; name: string; role: string; area: string; photo?: string };
+type Person = { name: string; role: string; area: string; photo?: string };
 
 // photo: "/team/<file>"
 const team: Person[] = [
-  { initials: "MB", name: "Murshid Basil", role: "Chief Growth Architect", area: "Growth" },
-  { initials: "MN", name: "M Nasim", role: "Chief Business Architect", area: "Business" },
-  { initials: "SP", name: "Serin Paul", role: "Chief Product Architect", area: "Product" },
-  { initials: "AN", name: "Adithyan M Nair", role: "Tech Architect", area: "Tech" },
+  { name: "Murshid Basil", role: "Chief Growth Architect", area: "Growth" },
+  { name: "M Nasim", role: "Chief Business Architect", area: "Business" },
+  { name: "Serin Paul", role: "Chief Product Architect", area: "Product" },
+  { name: "Adithyan M Nair", role: "Tech Architect", area: "Tech" },
 ];
 
 function Leg({ up }: { up?: boolean }) {
@@ -25,13 +25,9 @@ function Seat({ p, below }: { p: Person; below?: boolean }) {
   return (
     <div className={cn("flex flex-col items-center", !below && "from-above")}>
       {below && <Leg up />}
-      <div className="lift flex w-full max-w-[320px] flex-1 flex-col items-center gap-3 rounded-[20px] border border-line bg-white p-4 text-center md:flex-row md:gap-4 md:p-5 md:text-left">
-        {p.photo ? (
+      <div className="lift flex w-full max-w-[320px] flex-1 flex-col items-center justify-center gap-3 rounded-[20px] border border-line bg-white px-4 py-5 text-center md:px-6 md:py-6">
+        {p.photo && (
           <Image src={p.photo} alt="" width={160} height={160} className="h-14 w-14 shrink-0 rounded-full object-cover md:h-16 md:w-16" />
-        ) : (
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-lime bg-tint text-lg font-extrabold text-gtext md:h-16 md:w-16 md:text-xl">
-            {p.initials}
-          </span>
         )}
         <span className="flex flex-col gap-1">
           <span className="text-[15px] leading-5 font-bold md:text-lg md:leading-6">{p.name}</span>
