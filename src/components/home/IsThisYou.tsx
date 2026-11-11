@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { ShareButton } from "@/components/ui/Button";
 import { Ring, Section, SectionHeader, Tick } from "@/components/ui/Section";
 import { cn } from "@/lib/cn";
-import { requirementLink } from "@/lib/site";
 
 const pains = [
   "Decisions still come back to me",
@@ -26,11 +25,11 @@ function verdict(score: number) {
   return { title: "Tick what sounds familiar.", cta: "Share your requirement", zone: 0 };
 }
 
-function Gauge({ score, small }: { score: number; small?: boolean }) {
+function Gauge({ score }: { score: number }) {
   const r = 52;
   const c = 2 * Math.PI * r;
   return (
-    <svg viewBox="0 0 120 120" className={small ? "h-12 w-12 shrink-0" : "h-[96px] w-[96px] shrink-0 md:h-[120px] md:w-[120px]"} aria-hidden>
+    <svg viewBox="0 0 120 120" className="h-[96px] w-[96px] shrink-0 md:h-[120px] md:w-[120px]" aria-hidden>
       <circle cx="60" cy="60" r={r} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="11" />
       <circle
         cx="60"
@@ -57,13 +56,15 @@ export function IsThisYou() {
   const list = useRef<HTMLUListElement>(null);
   const [inList, setInList] = useState(false);
 
-  // phone score bar: only once the checklist has reached the upper part of the screen
+  // the checklist counts as "on screen" once its top passes the middle of the screen, until it scrolls away
   useEffect(() => {
     let frame = 0;
     const check = () => {
       frame = 0;
       const el = list.current;
-      if (el) setInList(el.getBoundingClientRect().top < window.innerHeight * 0.35);
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      setInList(r.top < window.innerHeight * 0.55 && r.bottom > window.innerHeight * 0.25);
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(check);
@@ -90,8 +91,14 @@ export function IsThisYou() {
 
   const message = `Hi Dotnot, I ticked ${score} of 10 on "Is this you?". I'd like to share a requirement.`;
 
+  // the phone share bar (StickyBar) shows the score while the checklist is on screen
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent("dn:checklist", { detail: { score, active: inList, title: v.title, message } }));
+  }, [score, inList, v.title, message]);
+  useEffect(() => () => void window.dispatchEvent(new CustomEvent("dn:checklist", { detail: null })), []);
+
   return (
-    <Section id="is-this-you" ownCta clip>
+    <Section id="is-this-you" clip>
       <SectionHeader overline="Is this you?" title="Does this sound like your business?" accent="like your business?" />
       <p className="mt-4 flex items-center gap-2 text-sm font-medium text-muted">
         <span className="h-2 w-2 rounded-full bg-brand" />
@@ -120,29 +127,6 @@ export function IsThisYou() {
             );
           })}
         </ul>
-
-        {/* phone: a small score that stays in view while ticking */}
-        <div
-          aria-live="polite"
-          className={cn(
-            "bg-brand-gradient sticky bottom-3 z-30 flex items-center gap-3 rounded-[20px] p-3 text-white shadow-[0_14px_32px_-8px_rgba(3,20,8,0.6)] transition-[opacity,translate] duration-300 lg:hidden",
-            inList ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0",
-          )}
-        >
-          <Gauge score={score} small />
-          <span className="flex min-w-0 flex-1 flex-col">
-            <span className="text-xs font-semibold text-lime">{score} of 10 ticked</span>
-            <span className="text-[15px] leading-5 font-bold">{v.title}</span>
-          </span>
-          <a
-            href={requirementLink(message)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 rounded-full bg-lime px-4 py-3 text-sm font-bold text-ink"
-          >
-            Share →
-          </a>
-        </div>
 
         <div data-reveal aria-live="polite" className="bg-brand-gradient relative hidden flex-col gap-5 overflow-hidden rounded-3xl p-6 text-white md:p-9 lg:flex">
           <Ring size={260} className="-top-[90px] right-[-60px] border-lime/25" />

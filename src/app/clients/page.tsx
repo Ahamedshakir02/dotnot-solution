@@ -19,7 +19,7 @@ export default function ClientsPage() {
     <>
       <main className="page-in">
         {/* 01 Hero */}
-        <section data-own-cta className="bg-brand-gradient relative overflow-hidden text-white">
+        <section data-hero className="bg-brand-gradient relative overflow-hidden text-white">
           <Ring size={760} className="top-[-180px] right-[-140px] border-lime/10" />
           <Nav tone="dark" />
           <div className="container-x relative grid items-end gap-10 pt-6 pb-14 lg:grid-cols-[1fr_440px] lg:pb-24">

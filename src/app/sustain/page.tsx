@@ -23,7 +23,7 @@ export default function SustainPage() {
     <>
       <main className="page-in">
         {/* 01 Hero */}
-        <section data-own-cta className="relative overflow-hidden bg-paper">
+        <section data-hero className="relative overflow-hidden bg-paper">
           <Nav tone="light" />
           <div className="container-x relative grid items-center gap-12 pt-6 pb-16 lg:grid-cols-[1fr_560px] lg:pb-28">
             <div data-stagger className="flex flex-col gap-6">

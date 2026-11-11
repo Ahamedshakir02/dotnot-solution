@@ -12,7 +12,7 @@ const stats = [
 
 export function Hero() {
   return (
-    <section data-own-cta className="bg-brand-gradient relative overflow-hidden text-white">
+    <section data-hero className="bg-brand-gradient relative overflow-hidden text-white">
       <Ring size={640} className="top-10 right-[-80px]" />
       <Ring size={300} color="white" className="top-[560px] left-[45%]" />
       <Nav tone="dark" />
