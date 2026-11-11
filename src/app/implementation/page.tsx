@@ -113,7 +113,7 @@ export default function ImplementationPage() {
               <path d="M0 160 C400 175 800 250 1200 280" fill="none" stroke="#0E3B1D" strokeWidth="3" vectorEffect="non-scaling-stroke" />
               <path d="M0 280 C400 265 800 190 1200 160" fill="none" stroke="#218A43" strokeWidth="3" vectorEffect="non-scaling-stroke" />
             </svg>
-            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-bold">
+            <div className="mt-4 hidden flex-wrap gap-x-6 gap-y-2 text-[13px] font-bold md:flex">
               <span className="flex items-center gap-2 text-brand">
                 <span className="h-[3px] w-6 rounded bg-brand" /> Your team’s ownership
               </span>
@@ -121,6 +121,11 @@ export default function ImplementationPage() {
                 <span className="h-[3px] w-6 rounded bg-deep" /> Dotnot’s role
               </span>
               <span className="text-xs font-bold tracking-[0.08em] text-muted uppercase md:ml-auto">Illustrative</span>
+            </div>
+            {/* Phone: the curves are hidden, so say it in words */}
+            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[13px] font-bold md:hidden">
+              <span className="text-brand">▲ Your team’s ownership grows</span>
+              <span className="text-deep">▼ Dotnot’s role shrinks</span>
             </div>
           </div>
         </Section>

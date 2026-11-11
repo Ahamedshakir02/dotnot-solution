@@ -75,8 +75,10 @@ export default function SustainPage() {
                   <span className={cn("flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full text-xs font-extrabold", ok ? "bg-lime" : "bg-tint")}>
                     {ok ? "✓" : "•"}
                   </span>
-                  <span className="text-[15px] font-bold">{k}</span>
-                  <span className="ml-auto text-right text-[13px] font-medium text-muted">{v}</span>
+                  <span className="flex flex-1 flex-col sm:flex-row sm:items-center">
+                    <span className="text-[15px] font-bold">{k}</span>
+                    <span className="text-[13px] font-medium text-muted sm:ml-auto sm:text-right">{v}</span>
+                  </span>
                 </div>
               ))}
               <p className="text-[10px] font-bold tracking-[0.08em] text-muted uppercase">Illustrative</p>
@@ -123,14 +125,14 @@ export default function SustainPage() {
             lead="Without upkeep, new systems drift back to old habits. Sustain keeps the gains growing."
           />
           <figure className="relative mt-10 md:mt-14">
-            <svg viewBox="0 0 1200 340" className="h-auto w-full" aria-hidden>
+            <svg viewBox="0 0 1200 340" preserveAspectRatio="none" className="h-[220px] w-full md:h-auto" aria-hidden>
               {[40, 130, 220, 310].map((y) => (
                 <line key={y} x1="0" x2="1200" y1={y} y2={y} stroke="#fff" strokeOpacity="0.08" />
               ))}
               <line x1="560" x2="560" y1="10" y2="330" stroke="#fff" strokeOpacity="0.3" />
-              <path d="M0 300 C300 290 450 180 560 150" fill="none" stroke="#86CC59" strokeWidth="3" />
-              <path d="M560 150 C760 140 900 90 1200 30" fill="none" stroke="#86CC59" strokeWidth="3" />
-              <path d="M560 150 C760 170 900 240 1200 270" fill="none" stroke="#fff" strokeOpacity="0.35" strokeWidth="2.5" strokeDasharray="8 6" />
+              <path d="M0 300 C300 290 450 180 560 150" fill="none" stroke="#86CC59" strokeWidth="3" vectorEffect="non-scaling-stroke" />
+              <path d="M560 150 C760 140 900 90 1200 30" fill="none" stroke="#86CC59" strokeWidth="3" vectorEffect="non-scaling-stroke" />
+              <path d="M560 150 C760 170 900 240 1200 270" fill="none" stroke="#fff" strokeOpacity="0.35" strokeWidth="2.5" strokeDasharray="8 6" vectorEffect="non-scaling-stroke" />
             </svg>
             <span className="absolute top-[3%] left-[47.5%] rounded-full bg-white/10 px-2.5 py-1 text-[11px] text-white md:text-xs">Handover</span>
             <span className="absolute top-[8%] right-0 rounded-full bg-lime px-2.5 py-1 text-[11px] font-bold text-ink md:top-[14%] md:text-xs">With Sustain</span>
