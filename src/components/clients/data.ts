@@ -22,7 +22,7 @@ export const industries: { name: string; clients: Client[] }[] = [
       { name: "Apparel manufacturer", factory: true },
     ],
   },
-  { name: "Restaurants", clients: [{ name: "Aslee Hindi", logo: L("aslee-hindi") }, { name: "Shawook", logo: L("shawook") }, { name: "Mr. Eggy", logo: L("mr-eggy") }] },
+  { name: "Restaurants", clients: [{ name: "Aslee Hindi", logo: L("aslee-hindi") }, { name: "Shawok", logo: L("shawok") }, { name: "Mr. Eggy", logo: L("mr-eggy") }] },
   { name: "Agencies", clients: [{ name: "Tale8", logo: L("tale8") }, { name: "Beyo", logo: L("beyo") }] },
   { name: "Healthcare", clients: [{ name: "Sravana Hearing Aid", logo: L("sravana") }] },
   { name: "Education and travel", clients: [{ name: "Edu Wisdom", logo: L("edu-wisdom") }, { name: "Europe Travels", logo: L("europe-travels") }] },
