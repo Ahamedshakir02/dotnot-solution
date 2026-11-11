@@ -46,7 +46,7 @@ export function ChatDemo() {
         <span className="ml-auto rounded-full bg-tint px-3 py-1.5 text-xs font-bold text-gtext">Sample conversation</span>
       </div>
 
-      <div className="flex min-h-[340px] flex-col gap-2.5 rounded-2xl bg-chat p-3" aria-live="polite">
+      <div className="flex min-h-[250px] flex-col gap-2.5 rounded-2xl bg-chat p-3 md:min-h-[340px]" aria-live="polite">
         <ChatBubbles lines={script.slice(0, Math.min(shown, script.length))} />
         {started && !done && shown < script.length && (
           <span className="flex w-fit gap-1 rounded-2xl bg-white px-3 py-3" aria-hidden>
