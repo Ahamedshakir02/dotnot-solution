@@ -28,9 +28,11 @@ export function ShareRequirement() {
 
         <div className="flex flex-col gap-4">
           <p className="text-xs font-bold tracking-[0.1em] text-lime uppercase">What happens next</p>
-          <ol data-stagger className="grid gap-5 sm:grid-cols-3 sm:gap-0">
+          <ol data-stagger className="grid sm:grid-cols-3">
             {next.map(([t, b], i) => (
-              <li key={t} className="flex flex-col gap-2.5">
+              <li key={t} className="relative flex gap-4 pb-6 last:pb-0 sm:flex-col sm:gap-2.5 sm:pb-0">
+                {/* phone: steps joined by a vertical line */}
+                {i < 2 && <span aria-hidden className="absolute top-[34px] bottom-0 left-4 w-0.5 bg-lime/45 sm:hidden" />}
                 <span className="flex items-center">
                   <span
                     className={`flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full text-sm font-extrabold ${
@@ -41,7 +43,7 @@ export function ShareRequirement() {
                   </span>
                   {i < 2 && <span className="hidden h-0.5 flex-1 bg-lime/45 sm:block" />}
                 </span>
-                <span className="sm:pr-4">
+                <span className="pt-1.5 sm:pt-0 sm:pr-4">
                   <span className="block font-bold">{t}</span>
                   <span className="block text-[13px] leading-[19px] text-white/70">{b}</span>
                 </span>
