@@ -18,7 +18,7 @@ export function Team() {
       <SectionHeader overline="Team" title="Strategy, operations, product and technology at one table." accent="at one table." />
       <ul data-stagger className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:gap-6 lg:grid-cols-4">
         {team.map((p) => (
-          <li key={p.name} className="lift flex flex-col gap-3 rounded-[20px] border border-line bg-white p-5 md:gap-4 md:p-7">
+          <li key={p.name} className="flex flex-col gap-3 rounded-[20px] border border-line bg-white p-5 md:gap-4 md:p-7">
             {p.photo ? (
               <Image src={p.photo} alt="" width={160} height={160} className="h-16 w-16 rounded-full object-cover md:h-20 md:w-20" />
             ) : (

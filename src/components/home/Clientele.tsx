@@ -25,7 +25,7 @@ export function Clientele() {
       />
       <ul data-stagger className="mt-10 grid gap-4 md:mt-14 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {industries.map((ind, i) => (
-          <li key={ind.name} className="lift flex flex-col gap-5 rounded-[20px] border border-line bg-white p-6 md:p-7">
+          <li key={ind.name} className="flex flex-col gap-5 rounded-[20px] border border-line bg-white p-6 md:p-7">
             <div className="flex items-center gap-3">
               <span className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-tint text-sm font-semibold text-gtext">
                 {String(i + 1).padStart(2, "0")}

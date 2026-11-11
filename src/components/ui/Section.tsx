@@ -88,7 +88,7 @@ export function SectionHeader({
   className?: string;
 }) {
   return (
-    <div data-reveal className={cn("flex max-w-[900px] flex-col gap-4", center && "mx-auto items-center text-center", className)}>
+    <div className={cn("flex max-w-[900px] flex-col gap-4", center && "mx-auto items-center text-center", className)}>
       <Overline dark={dark}>{overline}</Overline>
       <SplitTitle
         title={title}
