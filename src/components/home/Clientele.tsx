@@ -108,7 +108,7 @@ function Spotlight() {
   const [i, setI] = useState(0);
   const [held, setHeld] = useState(false);
   const box = useRef<HTMLDivElement>(null);
-  const touch = useRef(0);
+  const touch = useRef({ x: 0, y: 0 });
   const s = stories[i];
   const go = (n: number) => {
     setHeld(true);
@@ -142,15 +142,17 @@ function Spotlight() {
       aria-roledescription="carousel"
       aria-label="Client stories"
       onMouseEnter={() => setHeld(true)}
-      onTouchStart={(e) => (touch.current = e.touches[0].clientX)}
+      onTouchStart={(e) => (touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY })}
       onTouchEnd={(e) => {
-        const dx = e.changedTouches[0].clientX - touch.current;
-        if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+        const dx = e.changedTouches[0].clientX - touch.current.x;
+        const dy = e.changedTouches[0].clientY - touch.current.y;
+        // a sideways swipe, not a page scroll that drifted
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) go(i + (dx < 0 ? 1 : -1));
       }}
       className="bg-brand-gradient relative flex min-h-[392px] flex-col overflow-hidden rounded-3xl p-5 text-white shadow-[0_24px_50px_-10px_rgba(13,51,26,0.35)] md:min-h-[480px] md:rounded-[28px] md:p-10"
     >
       <Ring size={420} className="-top-36 right-[-120px] border-lime/15" />
-      <div key={i} aria-live="polite" className="story-in relative flex flex-1 flex-col">
+      <div key={i} aria-live={held ? "polite" : "off"} className="story-in relative flex flex-1 flex-col">
         <div className="flex items-center gap-3 md:gap-4">
           {s.logo ? (
             <Image src={s.logo} alt="" width={64} height={64} unoptimized className="h-12 w-12 rounded-xl object-cover md:h-16 md:w-16 md:rounded-2xl" />
@@ -170,7 +172,7 @@ function Spotlight() {
           <p className="text-sm leading-[21px] text-white/80 md:text-lg md:leading-7">{s.text}</p>
         </div>
       </div>
-      <div className="relative mt-6 flex items-center gap-2">
+      <div className="relative mt-6 flex items-center gap-0.5">
         {stories.map((st, k) => (
           <button
             key={st.client}
@@ -178,8 +180,10 @@ function Spotlight() {
             aria-label={`Show ${st.client}`}
             aria-current={k === i}
             onClick={() => go(k)}
-            className={cn("h-2 rounded-full transition-all", k === i ? "w-6 bg-lime" : "w-2 bg-white/30")}
-          />
+            className="-my-2 flex h-8 items-center px-1.5"
+          >
+            <span className={cn("block h-2 rounded-full transition-all", k === i ? "w-6 bg-lime" : "w-2 bg-white/30")} />
+          </button>
         ))}
         <span className="ml-2 text-[13px] font-semibold text-white/60">
           {i + 1} / {stories.length} client stories
