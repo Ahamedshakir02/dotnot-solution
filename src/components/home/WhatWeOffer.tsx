@@ -10,6 +10,7 @@ const stages = [
     what: "We hear from staff at every level and find what’s holding the business back.",
     get: "Findings with a money cost on each problem, in about 30 days.",
     pill: "bg-lime text-ink",
+    node: "bg-lime text-ink",
   },
   {
     over: "Stage 02",
@@ -18,6 +19,7 @@ const stages = [
     what: "We design the fix and build it with your team: roles, processes, numbers, tools.",
     get: "Working systems, at the level of involvement you choose.",
     pill: "bg-tint text-gtext",
+    node: "bg-tint2 text-gtext",
     chips: [
       ["Design", "Build", "Adopt"],
       ["Advisory", "Partner", "Architect"],
@@ -30,6 +32,7 @@ const stages = [
     what: "We stay through Sustain, so the gains keep growing.",
     get: "Tools that stay live, regular health reviews, support when something changes.",
     pill: "border-[1.5px] border-dashed border-brand text-gtext",
+    node: "border-[1.5px] border-dashed border-brand bg-white text-gtext",
   },
 ];
 
@@ -55,7 +58,23 @@ export function WhatWeOffer() {
 
       <ol data-stagger className="mt-10 grid gap-10 md:mt-14 md:grid-cols-3 md:gap-0">
         {stages.map((s, i) => (
-          <li key={s.name} className="flex flex-col gap-4">
+          <li key={s.name} className="relative flex flex-col gap-4 pl-12 md:pl-0">
+            {/* phone: the stages sit on one vertical path */}
+            <span
+              aria-hidden
+              className={cn("absolute top-[46px] left-0 flex h-8 w-8 items-center justify-center rounded-full text-sm font-extrabold md:hidden", s.node)}
+            >
+              {i + 1}
+            </span>
+            {i < 2 && (
+              <span
+                aria-hidden
+                className={cn(
+                  "absolute top-[82px] bottom-[-82px] left-[15px] md:hidden",
+                  i === 0 ? "w-0.5 bg-brand" : "border-l-2 border-dashed border-brand",
+                )}
+              />
+            )}
             <p className={cn("text-[12px] font-semibold tracking-[0.1em] uppercase", i === 0 ? "text-brand" : "text-muted", i > 0 && "md:pl-10")}>
               {s.over}
             </p>
@@ -65,6 +84,9 @@ export function WhatWeOffer() {
                 className={cn("flex h-14 items-center rounded-full px-6 text-[21px] font-bold transition-transform hover:-translate-y-0.5", s.pill, i > 0 && "md:pl-10")}
               >
                 {s.name}
+                <span aria-hidden className="ml-auto text-lg md:hidden">
+                  →
+                </span>
               </Link>
               {i < 2 && <Join />}
             </div>
