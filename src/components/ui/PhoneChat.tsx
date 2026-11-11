@@ -1,10 +1,11 @@
 import { cn } from "@/lib/cn";
 
-export type ChatLine =
+export type ChatLine = (
   | { from: "agent"; text: string }
   | { from: "user"; text: string }
   | { from: "voice"; duration: string; transcript?: string }
-  | { from: "recording" };
+  | { from: "recording" }
+) & { wide?: boolean }; // wide: only from tablet up, so a phone-sized mockup is never cut off
 
 const WAVE = [6, 12, 18, 9, 20, 14, 7, 16, 11, 6, 14, 10, 18, 8];
 
@@ -30,24 +31,24 @@ export function ChatBubbles({ lines, size = "md" }: { lines: ChatLine[]; size?: 
       {lines.map((l, i) => {
         if (l.from === "agent")
           return (
-            <div key={i} className="flex">
+            <div key={i} className={cn("flex", l.wide && "hidden sm:flex")}>
               <p className={cn("max-w-[78%] rounded-2xl rounded-tl-sm bg-white px-3 py-2.5 text-ink", text)}>{l.text}</p>
             </div>
           );
         if (l.from === "user")
           return (
-            <div key={i} className="flex justify-end">
+            <div key={i} className={cn("flex justify-end", l.wide && "hidden sm:flex")}>
               <p className={cn("max-w-[78%] rounded-2xl rounded-tr-sm bg-deep px-3 py-2.5 text-white", text)}>{l.text}</p>
             </div>
           );
         if (l.from === "voice")
           return (
-            <div key={i} className="flex justify-end">
+            <div key={i} className={cn("flex justify-end", l.wide && "hidden sm:flex")}>
               <VoiceNote duration={l.duration} compact={size === "sm"} />
             </div>
           );
         return (
-          <div key={i} className="flex">
+          <div key={i} className={cn("flex", l.wide && "hidden sm:flex")}>
             <span className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-2 text-[11px] font-medium text-muted">
               <span className="h-2 w-2 animate-pulse rounded-full bg-[#e5484d]" />
               Recording a voice note…

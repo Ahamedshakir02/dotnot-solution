@@ -13,18 +13,25 @@ export function GrowthAuditTeaser() {
   return (
     <Section id="growth-audit" tone="brand" inner="grid items-center gap-12 lg:grid-cols-[360px_1fr] lg:gap-20">
       <Ring size={600} className="-top-[220px] left-[-160px]" />
-      <PhoneChat
-        className="float mx-auto h-[470px] w-full max-w-[300px] sm:h-[600px] sm:max-w-[320px] lg:h-[680px] lg:max-w-none"
-        lines={[
-          { from: "agent", text: "Hi. What slows your work down most in a normal week?" },
-          { from: "voice", duration: "0:31" },
-          { from: "agent", text: "Thanks. Who do you wait on most?" },
-          { from: "voice", duration: "0:22" },
-          { from: "agent", text: "If you could change one thing tomorrow, what would it be?" },
-          { from: "voice", duration: "0:44" },
-          { from: "recording" },
-        ]}
-      />
+      <figure className="flex flex-col items-center gap-5">
+        <figcaption className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-[13px] font-semibold text-white">
+          <span aria-hidden className="h-2 w-2 rounded-full bg-lime" />
+          What each person sees on WhatsApp
+        </figcaption>
+        {/* phone: natural height and two questions, so nothing is cut off */}
+        <PhoneChat
+          className="float mx-auto w-full max-w-[300px] sm:h-[600px] sm:max-w-[320px] lg:h-[640px] lg:max-w-none"
+          lines={[
+            { from: "agent", text: "Hi. What slows your work down most in a normal week?" },
+            { from: "voice", duration: "0:31" },
+            { from: "agent", text: "Thanks. Who do you wait on most?" },
+            { from: "voice", duration: "0:22" },
+            { from: "agent", text: "If you could change one thing tomorrow, what would it be?", wide: true },
+            { from: "voice", duration: "0:44", wide: true },
+            { from: "recording" },
+          ]}
+        />
+      </figure>
       <div className="order-first flex flex-col gap-8 lg:order-none">
         <SectionHeader
           dark
