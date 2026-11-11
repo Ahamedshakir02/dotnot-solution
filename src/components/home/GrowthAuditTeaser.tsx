@@ -14,7 +14,7 @@ export function GrowthAuditTeaser() {
     <Section id="growth-audit" tone="brand" inner="grid items-center gap-12 lg:grid-cols-[360px_1fr] lg:gap-20">
       <Ring size={600} className="top-[-200px] left-[-200px]" />
       <PhoneChat
-        className="float mx-auto h-[600px] w-full max-w-[320px] lg:h-[680px] lg:max-w-none"
+        className="float mx-auto h-[470px] w-full max-w-[300px] sm:h-[600px] sm:max-w-[320px] lg:h-[680px] lg:max-w-none"
         lines={[
           { from: "agent", text: "Hi. What slows your work down most in a normal week?" },
           { from: "voice", duration: "0:31" },

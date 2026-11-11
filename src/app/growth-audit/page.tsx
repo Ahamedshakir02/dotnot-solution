@@ -89,7 +89,7 @@ export default function GrowthAuditPage() {
           <ol data-stagger className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
               <li key={s.t} className="lift flex flex-col overflow-hidden rounded-3xl border border-line bg-white">
-                <div className="flex h-[190px] flex-col justify-center gap-2 bg-paper p-5">
+                <div className="flex h-[150px] flex-col justify-center gap-2 bg-paper p-5 sm:h-[190px]">
                   <StepVisual i={i} />
                 </div>
                 <div className="flex flex-col gap-1.5 p-6 pt-5">

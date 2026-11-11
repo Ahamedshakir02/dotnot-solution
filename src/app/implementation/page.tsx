@@ -148,7 +148,7 @@ export default function ImplementationPage() {
               { name: "Custom tools", text: "Built for how you already work." },
             ].map((b, i) => (
               <li key={b.name} className="lift flex flex-col overflow-hidden rounded-3xl border border-line bg-white">
-                <div className="flex h-[200px] flex-col justify-center bg-tint p-5" aria-hidden>
+                <div className="flex h-[170px] flex-col justify-center bg-tint p-5 sm:h-[200px]" aria-hidden>
                   <BuildMock i={i} />
                 </div>
                 <div className="flex flex-col gap-1.5 p-6">
