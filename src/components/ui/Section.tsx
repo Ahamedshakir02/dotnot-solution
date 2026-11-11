@@ -121,7 +121,8 @@ export function Ring({
     <span
       aria-hidden
       style={{ width: size, height: size }}
-      className={cn("pointer-events-none absolute rounded-full border-[1.5px]", border, className)}
+      // big screens only: on a phone there is no empty space, so a ring always cuts through text
+      className={cn("pointer-events-none absolute hidden rounded-full border-[1.5px] lg:block", border, className)}
     />
   );
 }

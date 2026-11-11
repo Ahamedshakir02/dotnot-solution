@@ -57,7 +57,7 @@ function Spotlight() {
       }}
       className="bg-brand-gradient relative flex min-h-[392px] flex-col overflow-hidden rounded-3xl p-5 text-white shadow-[0_24px_50px_-10px_rgba(13,51,26,0.35)] md:min-h-[480px] md:rounded-[28px] md:p-10"
     >
-      <Ring size={420} className="-top-36 right-[-120px] border-lime/15" />
+      <Ring size={420} className="-top-[220px] right-[-120px] border-lime/15" />
       <div key={`${i}-${inView}`} aria-live={byUser ? "polite" : "off"} className="story-in relative flex flex-1 flex-col">
         <div className="flex items-center gap-3 md:gap-4">
           {s.logo ? (

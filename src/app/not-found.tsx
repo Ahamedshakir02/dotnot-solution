@@ -12,7 +12,7 @@ export default function NotFound() {
     <>
       <main>
         <section data-hero className="bg-brand-gradient relative overflow-hidden text-white">
-          <Ring size={760} className="top-[-180px] right-[-140px] border-lime/10" />
+          <Ring size={360} className="-top-[140px] right-[-140px] border-lime/10" />
           <Nav tone="dark" />
           <div className="container-x relative flex flex-col gap-6 pt-10 pb-20 md:pt-16 md:pb-32">
             <p className="text-[13px] font-semibold tracking-[0.12em] text-lime uppercase">404 · Page not found</p>

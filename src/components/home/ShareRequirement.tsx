@@ -13,7 +13,7 @@ const next = [
 export function ShareRequirement() {
   return (
     <Section id="share" tone="brand" className="md:py-[120px]" inner="grid items-center gap-12 lg:grid-cols-[1fr_520px] lg:gap-[72px]">
-      <Ring size={460} className="bottom-[-160px] left-[-160px]" />
+      <Ring size={460} className="bottom-[-180px] left-[-300px]" />
       <Ring size={700} color="white" className="top-[-260px] right-[-200px]" />
 
       <div className="flex flex-col gap-8">

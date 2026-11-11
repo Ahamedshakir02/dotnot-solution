@@ -162,7 +162,7 @@ export default function ImplementationPage() {
 
         {/* 04 Fitted to the business */}
         <Section tone="brand">
-          <Ring size={700} className="top-[-250px] right-[-200px] border-lime/10" />
+          <Ring size={360} className="-top-[100px] right-[-260px] border-lime/10" />
           <SectionHeader
             dark
             overline="Technology fitted to the business"
