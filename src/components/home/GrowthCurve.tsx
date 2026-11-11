@@ -16,7 +16,7 @@ export function GrowthCurve() {
     <figure
       data-reveal
       data-draw
-      className="relative w-full rounded-[28px] bg-white shadow-[0_4px_10px_rgba(3,20,8,0.22),0_28px_56px_-6px_rgba(3,20,8,0.45),0_0_40px_rgba(134,204,89,0.18)]"
+      className="relative w-full rounded-[28px] bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.07),0_0_70px_6px_rgba(134,204,89,0.25),0_40px_80px_-12px_rgba(0,0,0,0.6)]"
       style={{ aspectRatio: `${W} / ${H}` }}
     >
       <figcaption className="absolute top-[6%] left-[5.7%] text-[10px] font-bold tracking-[0.08em] text-muted uppercase md:text-[13px]">
