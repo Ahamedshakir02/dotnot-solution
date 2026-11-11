@@ -4,6 +4,7 @@ import { Motion } from "@/components/ui/Motion";
 import { StickyBar } from "@/components/ui/StickyBar";
 import { site } from "@/lib/site";
 import "./globals.css";
+import { motionBoot } from "@/lib/motion-boot";
 
 const manrope = localFont({
   src: [
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <StickyBar />
         <Motion />
+        <script dangerouslySetInnerHTML={{ __html: motionBoot }} />
       </body>
     </html>
   );
