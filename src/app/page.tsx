@@ -4,7 +4,6 @@ import { Hero } from "@/components/home/Hero";
 import { HowWeDiffer } from "@/components/home/HowWeDiffer";
 import { IsThisYou } from "@/components/home/IsThisYou";
 import { Results } from "@/components/home/Results";
-import { ResultsTicker } from "@/components/home/ResultsTicker";
 import { ShareRequirement } from "@/components/home/ShareRequirement";
 import { Team } from "@/components/home/Team";
 import { Values } from "@/components/home/Values";
@@ -16,7 +15,6 @@ export default function HomePage() {
     <>
       <main className="page-in">
         <Hero />
-        <ResultsTicker />
         <Clientele />
         <IsThisYou />
         <WhatWeOffer />
