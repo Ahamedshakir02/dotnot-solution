@@ -13,24 +13,17 @@ export const metadata: Metadata = {
     "We stay through Sustain, so the gains keep growing: tools that stay live, regular health reviews, and support when something changes.",
 };
 
-const PULSE = "0,80 90,80 110,60 125,96 140,40 155,80 260,78 280,58 295,92 310,34 325,76 504,60";
+// before handover: the build; after it, growth that holds vs. growth that stalls
+const SUSTAIN_BUILD = "M8 132 C60 128 120 118 200 92";
+const SUSTAIN_UP = "M200 92 C260 74 300 72 340 62 C380 52 430 40 496 26";
+const SUSTAIN_FLAT = "M200 92 C260 84 300 86 340 88 C390 90 440 92 496 94";
 
 export default function SustainPage() {
   return (
     <>
       <main className="page-in">
         {/* 01 Hero */}
-        <section data-own-cta data-draw className="relative overflow-hidden bg-paper">
-          <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="wipe pointer-events-none absolute bottom-0 left-0 h-[110px] w-full" style={{ ["--dd" as string]: "300ms" }} aria-hidden>
-            <polyline
-              points="0,100 300,100 340,60 370,150 400,20 430,100 700,100 740,70 770,130 800,40 830,100 1100,100 1130,60 1160,120 1190,0 1220,100 1440,100"
-              fill="none"
-              stroke="#218A43"
-              strokeOpacity="0.16"
-              strokeWidth="3"
-              vectorEffect="non-scaling-stroke"
-            />
-          </svg>
+        <section data-own-cta className="relative overflow-hidden bg-paper">
           <Nav tone="light" />
           <div className="container-x relative grid items-center gap-12 pt-6 pb-16 lg:grid-cols-[1fr_560px] lg:pb-28">
             <div data-stagger className="flex flex-col gap-6">
@@ -56,16 +49,35 @@ export default function SustainPage() {
                   <span className="h-2 w-2 animate-pulse rounded-full bg-brand" /> All systems live
                 </span>
               </div>
-              <svg viewBox="0 0 504 120" className="wipe h-[110px] w-full rounded-2xl bg-paper" style={{ ["--dd" as string]: "700ms" }} preserveAspectRatio="none" aria-hidden>
-                <defs>
-                  <linearGradient id="su-area" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stopColor="#86CC59" stopOpacity="0.3" />
-                    <stop offset="1" stopColor="#86CC59" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                <polygon points={`${PULSE} 504,120 0,120`} fill="url(#su-area)" />
-                <polyline points={PULSE} fill="none" stroke="#218A43" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
-              </svg>
+              <div data-draw className="rounded-2xl bg-paper p-3">
+                <div className="relative h-[130px] md:h-[150px]">
+                  <svg viewBox="0 0 504 150" preserveAspectRatio="none" className="wipe absolute inset-0 h-full w-full" aria-hidden>
+                    <defs>
+                      <linearGradient id="su-area" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stopColor="#86CC59" stopOpacity="0.3" />
+                        <stop offset="1" stopColor="#86CC59" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                    {[40, 85, 130].map((y) => (
+                      <line key={y} x1="0" x2="504" y1={y} y2={y} stroke="#DADFDA" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+                    ))}
+                    <line x1="200" x2="200" y1="18" y2="146" stroke="#5F6863" strokeOpacity="0.35" strokeDasharray="3 4" vectorEffect="non-scaling-stroke" />
+                    <path d={`${SUSTAIN_UP} L496 146 L200 146 Z`} fill="url(#su-area)" />
+                    <path d={SUSTAIN_FLAT} fill="none" stroke="#5F6863" strokeOpacity="0.55" strokeWidth="2.5" strokeDasharray="6 6" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                    <path d={`${SUSTAIN_BUILD} ${SUSTAIN_UP.replace("M200 92", "")}`} fill="none" stroke="#218A43" strokeWidth="3" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                  </svg>
+                  <span className="absolute h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-brand bg-white" style={{ left: "39.7%", top: "61.3%" }} />
+                  <span className="absolute top-0 -translate-x-1/2 rounded-full bg-white px-2 py-0.5 text-[10px] font-bold text-muted ring-1 ring-line" style={{ left: "39.7%" }}>
+                    Handover
+                  </span>
+                  <span className="fade absolute top-0 right-0 text-[11px] font-bold text-gtext" style={{ ["--dd" as string]: "1400ms" }}>
+                    With Sustain
+                  </span>
+                  <span className="fade absolute top-[69%] right-0 text-[11px] font-semibold text-muted italic" style={{ ["--dd" as string]: "1400ms" }}>
+                    Without upkeep, it stalls
+                  </span>
+                </div>
+              </div>
               {[
                 ["Tools", "Live and up to date", true],
                 ["Health review", "At a rhythm we agree with you", false],
