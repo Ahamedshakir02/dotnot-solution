@@ -60,16 +60,15 @@ export function HowWeDiffer() {
       {/* Phone: tabs */}
       <CompareTabs />
 
-      <ol data-stagger className="no-scrollbar -mx-5 mt-8 flex snap-x scroll-px-5 gap-3 overflow-x-auto px-5 md:mx-0 md:mt-10 md:grid md:grid-cols-5 md:gap-4 md:px-0">
-        {five.map((f, i) => (
-          <li key={f.t} className="flex w-[280px] shrink-0 snap-start flex-col gap-3 rounded-[20px] border border-line bg-white p-6 md:w-auto">
-            <span className="w-fit rounded-lg bg-tint px-2.5 py-1 text-sm font-semibold text-gtext">{String(i + 1).padStart(2, "0")}</span>
+      <ul data-stagger className="mt-12 grid gap-x-8 gap-y-8 sm:grid-cols-2 md:mt-16 lg:grid-cols-5">
+        {five.map((f) => (
+          <li key={f.t} className="flex flex-col gap-3 border-t-2 border-ink pt-5">
             <h3 className="text-[19px] leading-[26px] font-semibold">{f.t}</h3>
             <p className="text-[15px] leading-6 text-muted">{f.b}</p>
             {f.p && (
               <>
                 <div className="flex-1" />
-                <div className="border-t border-line pt-3">
+                <div className="pt-1">
                   <p className="text-xs font-semibold tracking-[0.1em] text-brand uppercase">Proof</p>
                   <p className="text-sm font-semibold">{f.p}</p>
                 </div>
@@ -77,7 +76,7 @@ export function HowWeDiffer() {
             )}
           </li>
         ))}
-      </ol>
+      </ul>
     </Section>
   );
 }

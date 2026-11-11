@@ -19,7 +19,7 @@ export function Values() {
     <Section id="values" tone="paper">
       <SectionHeader overline="Our values" title="Ten things we hold ourselves to." accent="we hold ourselves to." />
 
-      <div className="mt-10 grid gap-4 md:mt-14 lg:grid-cols-[384px_1fr]">
+      <div className="mt-10 grid gap-10 md:mt-14 lg:grid-cols-[384px_1fr] lg:gap-14">
         <div data-reveal className="bg-brand-gradient relative flex min-h-[320px] flex-col gap-4 overflow-hidden rounded-3xl p-8 text-white md:p-9">
           <div className="flex-1" />
           <p className="text-xs font-bold tracking-[0.1em] text-lime uppercase">The one we start with</p>
@@ -27,15 +27,14 @@ export function Values() {
           <p className="text-[17px] leading-[26px] text-white/80">{first[1]}</p>
         </div>
 
-        <ol data-stagger className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {rest.map(([t, b], i) => (
-            <li key={t} className="flex flex-col gap-2.5 rounded-[20px] border border-line bg-white p-6">
-              <span className="text-[13px] font-extrabold text-brand">{String(i + 2).padStart(2, "0")}</span>
+        <ul data-stagger className="grid gap-x-10 sm:grid-cols-2 xl:grid-cols-3">
+          {rest.map(([t, b]) => (
+            <li key={t} className="flex flex-col gap-1.5 border-t border-ink/15 py-5">
               <h3 className="text-lg leading-6 font-bold">{t}</h3>
               <p className="text-sm leading-[21px] text-muted">{b}</p>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
     </Section>
   );
