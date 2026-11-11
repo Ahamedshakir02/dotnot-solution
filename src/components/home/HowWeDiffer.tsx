@@ -1,6 +1,6 @@
 import { Section, SectionHeader, Tick } from "@/components/ui/Section";
 import { comparison } from "./comparison";
-import { CompareTabs } from "./CompareTabs";
+import { CompareStack } from "./CompareStack";
 
 const five: { t: string; b: string; p?: string }[] = [
   { t: "We hear from everyone, not just the top.", b: "Staff answer our WhatsApp AI advisor by voice, in their own language.", p: "The Growth Audit platform" },
@@ -57,8 +57,8 @@ export function HowWeDiffer() {
         })}
       </div>
 
-      {/* Phone: tabs */}
-      <CompareTabs />
+      {/* Phone: every row, all three at once */}
+      <CompareStack />
 
       <ol data-stagger className="no-scrollbar -mx-5 mt-8 flex snap-x scroll-px-5 gap-3 overflow-x-auto px-5 md:mx-0 md:mt-10 md:grid md:grid-cols-5 md:gap-4 md:px-0">
         {five.map((f, i) => (
