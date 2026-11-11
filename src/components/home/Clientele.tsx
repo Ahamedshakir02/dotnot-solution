@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { cn } from "@/lib/cn";
 
-// logo: "/clients/<file>"
-const industries: { name: string; clients: { name: string; logo?: string }[] }[] = [
+// mark: small logo shown next to the name (files in /public/clients)
+const industries: { name: string; clients: { name: string; mark?: string }[] }[] = [
   { name: "Retail", clients: [{ name: "Colors and Looms" }, { name: "Zeenath Textile" }, { name: "Eyenation" }, { name: "Safari Furniture" }, { name: "Al Rams" }] },
   { name: "Manufacturing", clients: [{ name: "Pearl City" }, { name: "Evergreen Furniture" }, { name: "An apparel manufacturer" }] },
-  { name: "Restaurants", clients: [{ name: "Aslee Hindi" }, { name: "Shawook" }, { name: "Mr. Eggy" }] },
+  { name: "Restaurants", clients: [{ name: "Aslee Hindi" }, { name: "Shawook" }, { name: "Mr. Eggy", mark: "/clients/mr-eggy-mark.svg" }] },
   { name: "Agencies", clients: [{ name: "Tale8" }, { name: "Beyo" }] },
   { name: "Healthcare", clients: [{ name: "Sravana Hearing Aid" }] },
   { name: "Education and travel", clients: [{ name: "Edu Wisdom" }, { name: "Europe Travels" }] },
@@ -34,8 +35,9 @@ export function Clientele() {
             </div>
             <ul className="flex flex-wrap gap-2">
               {ind.clients.map((c) => (
-                <li key={c.name} className="rounded-full border border-line bg-paper px-3.5 py-2 text-sm font-medium">
-                  {c.logo ? <Image src={c.logo} alt={c.name} width={120} height={40} className="h-5 w-auto" /> : c.name}
+                <li key={c.name} className={cn("flex items-center gap-2 rounded-full border border-line bg-paper py-2 pr-3.5 text-sm font-medium", c.mark ? "pl-2" : "pl-3.5")}>
+                  {c.mark && <Image src={c.mark} alt="" width={20} height={24} unoptimized className="h-5 w-auto" />}
+                  {c.name}
                 </li>
               ))}
             </ul>
