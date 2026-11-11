@@ -26,13 +26,13 @@ const steps = [
 export default function GrowthAuditPage() {
   return (
     <>
-      <main>
+      <main className="page-in">
         {/* 01 Hero */}
         <section className="bg-brand-gradient relative overflow-hidden text-white">
           <Ring size={760} className="top-[-180px] right-[-140px] border-lime/10" />
           <Nav tone="dark" />
           <div className="container-x relative grid items-center gap-10 pt-6 pb-16 lg:grid-cols-[1fr_600px] lg:gap-8 lg:pb-24">
-            <div className="flex flex-col gap-6">
+            <div data-stagger className="flex flex-col gap-6">
               <p className="text-[13px] font-medium text-white/55">
                 <Link href="/" className="hover:text-white">Home</Link> / Growth Audit
               </p>
@@ -77,7 +77,7 @@ export default function GrowthAuditPage() {
             accent="We hear everyone."
             lead="The people who do the work every day see problems the owner never hears about."
           />
-          <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
+          <div data-stagger className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
             <Pyramid title="A typical audit hears" sub="The top of the business." note="The owner and senior managers." lit={5} />
             <Pyramid dark title="The Growth Audit hears" sub="Every level, through a WhatsApp AI interview." note="Owners, managers and frontline staff alike." lit={15} />
           </div>
@@ -86,9 +86,9 @@ export default function GrowthAuditPage() {
         {/* 03 How it works */}
         <Section>
           <SectionHeader overline="How it works" title="Four steps. Nobody fills a form." accent="Nobody fills a form." />
-          <ol className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-4">
+          <ol data-stagger className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
-              <li key={s.t} className="flex flex-col overflow-hidden rounded-3xl border border-line bg-white">
+              <li key={s.t} className="lift flex flex-col overflow-hidden rounded-3xl border border-line bg-white">
                 <div className="flex h-[190px] flex-col justify-center gap-2 bg-paper p-5">
                   <StepVisual i={i} />
                 </div>
@@ -113,7 +113,7 @@ export default function GrowthAuditPage() {
               accent="Your team talks."
               lead="Each person answers on WhatsApp, by voice, in their own language. No meeting room, no forms."
             />
-            <ul>
+            <ul data-stagger>
               {[
                 ["Private link", "Each person answers on their own."],
                 ["Voice first", "Talking is easier than typing."],
@@ -133,7 +133,7 @@ export default function GrowthAuditPage() {
           <PhoneChat
             title="Dotnot AI advisor"
             subtitle="Growth Audit · private"
-            className="mx-auto h-[640px] w-full max-w-[340px] lg:h-[740px] lg:max-w-none"
+            className="float mx-auto h-[640px] w-full max-w-[340px] lg:h-[740px] lg:max-w-none"
             lines={[
               { from: "agent", text: "What slows your work down most in a normal week?" },
               { from: "voice", duration: "0:38" },
@@ -166,7 +166,7 @@ export default function GrowthAuditPage() {
               <p className="text-[11px] font-medium text-muted">Sorted by cost a month. Illustrative.</p>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-[520px] lg:h-[440px]">
+          <div data-reveal className="relative mx-auto w-full max-w-[520px] lg:h-[440px]">
             <FindingCard className="absolute top-8 left-6 hidden -rotate-6 opacity-90 lg:flex" />
             <FindingCard className="absolute top-2 left-16 hidden rotate-[4deg] opacity-90 lg:flex" />
             <FindingCard front className="relative lg:absolute lg:top-6 lg:left-10" />
@@ -181,9 +181,9 @@ export default function GrowthAuditPage() {
             accent="about 30 days."
             lead="Indicative. The exact plan depends on team size and branches."
           />
-          <ol className="relative mt-12 grid gap-8 md:mt-16 md:grid-cols-4 md:gap-0">
-            <span aria-hidden className="absolute top-[13px] left-[13px] hidden h-2.5 w-[calc(100%-26px)] rounded-full bg-gradient-to-r from-lime to-brand md:block" />
-            <span aria-hidden className="absolute top-0 bottom-0 left-[13px] w-0.5 bg-gradient-to-b from-lime to-brand md:hidden" />
+          <ol data-stagger className="relative mt-12 grid gap-8 md:mt-16 md:grid-cols-4 md:gap-0">
+            <span aria-hidden style={{ opacity: 1, transform: "none" }} className="absolute top-[13px] left-[13px] hidden h-2.5 w-[calc(100%-26px)] rounded-full bg-gradient-to-r from-lime to-brand md:block" />
+            <span aria-hidden style={{ opacity: 1, transform: "none" }} className="absolute top-0 bottom-0 left-[13px] w-0.5 bg-gradient-to-b from-lime to-brand md:hidden" />
             {[
               ["Day 1", "Links go out"],
               ["", "Voice answers come in"],
@@ -211,7 +211,7 @@ export default function GrowthAuditPage() {
         {/* 07 Where it leads */}
         <Section tone="paper">
           <SectionHeader overline="After the audit" title="The findings are yours. Then we build." accent="Then we build." />
-          <ol className="mt-10 grid items-stretch gap-4 md:mt-14 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
+          <ol data-stagger className="mt-10 grid items-stretch gap-4 md:mt-14 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
             <li className="bg-brand-gradient flex h-full flex-col gap-2 rounded-3xl p-7 text-white">
               <span className="w-fit rounded-full bg-lime px-3 py-1 text-xs font-bold text-ink">● You are here</span>
               <span className="text-[28px] font-extrabold tracking-[-0.03em]">Growth Audit</span>

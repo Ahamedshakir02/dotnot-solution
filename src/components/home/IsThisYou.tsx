@@ -77,7 +77,7 @@ export function IsThisYou() {
       </p>
 
       <div className="mt-8 grid gap-6 md:mt-12 lg:grid-cols-[1fr_384px] lg:gap-8">
-        <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
+        <ul data-stagger className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
           {pains.map((p, i) => {
             const on = ticked.has(i);
             return (
@@ -99,7 +99,7 @@ export function IsThisYou() {
           })}
         </ul>
 
-        <div aria-live="polite" className="bg-brand-gradient relative flex flex-col gap-5 overflow-hidden rounded-3xl p-6 text-white md:p-9">
+        <div data-reveal aria-live="polite" className="bg-brand-gradient relative flex flex-col gap-5 overflow-hidden rounded-3xl p-6 text-white md:p-9">
           <Ring size={260} className="-top-[90px] right-[-60px] border-lime/25" />
           <p className="text-[13px] font-semibold tracking-[0.12em] text-lime uppercase">Your result</p>
           <div className="flex items-center gap-5">

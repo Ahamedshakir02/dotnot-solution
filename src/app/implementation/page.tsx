@@ -29,7 +29,7 @@ const phases = [
 export default function ImplementationPage() {
   return (
     <>
-      <main>
+      <main className="page-in">
         {/* 01 Hero — blueprint */}
         <section
           className="relative overflow-hidden bg-[#0a2614] text-white"
@@ -41,7 +41,7 @@ export default function ImplementationPage() {
         >
           <Nav tone="dark" />
           <div className="container-x relative grid items-center gap-12 pt-6 pb-16 lg:grid-cols-[1fr_560px] lg:pb-24">
-            <div className="flex flex-col gap-6">
+            <div data-stagger className="flex flex-col gap-6">
               <p className="text-[13px] font-medium text-white/55">
                 <Link href="/" className="hover:text-white">Home</Link> / Implementation
               </p>
@@ -65,7 +65,7 @@ export default function ImplementationPage() {
 
             <div className="relative">
               <span aria-hidden className="absolute top-2 bottom-12 left-0 hidden border-l border-dashed border-lime/50 sm:block" />
-              <ol className="flex flex-col gap-4 sm:pl-8">
+              <ol data-stagger className="flex flex-col gap-4 sm:pl-8">
                 {layers.map((l, i) => (
                   <li
                     key={l.name}
@@ -99,8 +99,8 @@ export default function ImplementationPage() {
             accent="Then it’s yours."
             lead="Our role shrinks as your team takes over. Success means your team runs it without us."
           />
-          <div className="relative mt-10 md:mt-14">
-            <ol className="grid overflow-hidden rounded-3xl md:grid-cols-3">
+          <div data-draw className="relative mt-10 md:mt-14">
+            <ol data-stagger className="grid overflow-hidden rounded-3xl md:grid-cols-3">
               {phases.map((p, i) => (
                 <li key={p.name} className={cn("flex flex-col gap-2 p-6 md:min-h-[300px] md:p-7", p.tone)}>
                   <span className="text-sm font-extrabold text-gtext">0{i + 1}</span>
@@ -109,7 +109,7 @@ export default function ImplementationPage() {
                 </li>
               ))}
             </ol>
-            <svg viewBox="0 0 1200 300" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" aria-hidden>
+            <svg viewBox="0 0 1200 300" preserveAspectRatio="none" className="wipe pointer-events-none absolute inset-0 hidden h-full w-full md:block" style={{ ["--dd" as string]: "600ms" }} aria-hidden>
               <path d="M0 160 C400 175 800 250 1200 280" fill="none" stroke="#0E3B1D" strokeWidth="3" vectorEffect="non-scaling-stroke" />
               <path d="M0 280 C400 265 800 190 1200 160" fill="none" stroke="#218A43" strokeWidth="3" vectorEffect="non-scaling-stroke" />
             </svg>
@@ -138,14 +138,14 @@ export default function ImplementationPage() {
             accent="dashboards and custom tools."
             lead="Built with your team, so they actually use it."
           />
-          <ul className="mt-10 grid gap-5 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
+          <ul data-stagger className="mt-10 grid gap-5 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
             {[
               { name: "SOPs", text: "How the work gets done, written down." },
               { name: "CRMs", text: "Enquiries and follow-ups in one place." },
               { name: "Dashboards", text: "Numbers every week, not at month-end." },
               { name: "Custom tools", text: "Built for how you already work." },
             ].map((b, i) => (
-              <li key={b.name} className="flex flex-col overflow-hidden rounded-3xl border border-line bg-white">
+              <li key={b.name} className="lift flex flex-col overflow-hidden rounded-3xl border border-line bg-white">
                 <div className="flex h-[200px] flex-col justify-center bg-tint p-5" aria-hidden>
                   <BuildMock i={i} />
                 </div>
@@ -167,7 +167,7 @@ export default function ImplementationPage() {
             title="You don’t adapt to the software. It adapts to you."
             accent="It adapts to you."
           />
-          <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
+          <div data-stagger className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
             <ExampleCard client="Apparel retailer" title="Sales-target planning">
               <p className="text-xs font-bold">Target vs actual · this month</p>
               {[
@@ -209,7 +209,7 @@ export default function ImplementationPage() {
             accent="how involved we are."
             lead="Three levels of involvement, the same method underneath. We agree the level with you after the Growth Audit."
           />
-          <ul className="mt-10 grid gap-4 md:mt-14 md:grid-cols-3 md:gap-5">
+          <ul data-stagger className="mt-10 grid gap-4 md:mt-14 md:grid-cols-3 md:gap-5">
             {["Advisory", "Partner", "Architect"].map((l, i) => (
               <li key={l} className={cn("flex items-center gap-4 rounded-3xl border p-7", i === 1 ? "border-brand bg-tint" : "border-line bg-white")}>
                 <span className="flex gap-1" aria-hidden>
@@ -232,7 +232,7 @@ export default function ImplementationPage() {
             accent="before we build."
             lead="A lead system on top of an undiagnosed problem rarely works. So the Growth Audit comes first."
           />
-          <div className="grid items-center gap-3 md:grid-cols-[1fr_auto_1fr]">
+          <div data-stagger className="grid items-center gap-3 md:grid-cols-[1fr_auto_1fr]">
             <div className="flex flex-col gap-2 rounded-[20px] border border-white/15 bg-white/[0.07] p-6">
               <span className="text-xs font-bold tracking-[0.08em] text-lime uppercase">Growth Audit found</span>
               <span className="text-lg leading-[25px] font-bold">Misalignment and poor communication between departments.</span>

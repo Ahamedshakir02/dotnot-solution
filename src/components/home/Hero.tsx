@@ -18,7 +18,7 @@ export function Hero() {
       <Nav tone="dark" />
 
       <div className="container-x relative grid items-center gap-12 pt-6 pb-12 md:pt-10 lg:grid-cols-[1fr_520px] lg:gap-14">
-        <div className="flex flex-col gap-6 md:gap-7">
+        <div data-stagger className="flex flex-col gap-6 md:gap-7">
           <p className="inline-flex w-fit items-center gap-2 rounded-full border border-lime/50 px-3 py-1.5 text-xs font-semibold text-lime">
             <span className="h-1.5 w-1.5 rounded-full bg-lime" />
             Grow forward.
@@ -45,7 +45,7 @@ export function Hero() {
       </div>
 
       <div className="container-x relative pb-12 md:pb-16">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/15 pt-6 md:grid-cols-4 md:pt-8">
+        <dl data-stagger className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/15 pt-6 md:grid-cols-4 md:pt-8">
           {stats.map((s) => (
             <div key={s.label} className="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-3">
               <dt className="sr-only">{s.label}</dt>

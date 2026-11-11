@@ -56,7 +56,7 @@ export function WhatWeOffer() {
         lead="Every client starts with the Growth Audit. Implementation and Sustain follow, at the pace the business can take."
       />
 
-      <ol className="mt-10 grid gap-10 md:mt-14 md:grid-cols-3 md:gap-0">
+      <ol data-stagger className="mt-10 grid gap-10 md:mt-14 md:grid-cols-3 md:gap-0">
         {stages.map((s, i) => (
           <li key={s.name} className="flex flex-col gap-4">
             <p className={cn("text-[12px] font-semibold tracking-[0.1em] uppercase", i === 0 ? "text-brand" : "text-muted", i > 0 && "md:pl-10")}>
@@ -95,7 +95,7 @@ export function WhatWeOffer() {
         ))}
       </ol>
 
-      <p className="bg-coal-gradient mt-10 flex flex-col gap-3 rounded-[24px] px-6 py-5 text-white sm:flex-row sm:items-center sm:gap-4 md:mt-14 md:rounded-full md:px-7">
+      <p data-reveal className="bg-coal-gradient mt-10 flex flex-col gap-3 rounded-[24px] px-6 py-5 text-white sm:flex-row sm:items-center sm:gap-4 md:mt-14 md:rounded-full md:px-7">
         <span className="w-fit rounded-full bg-lime px-3.5 py-1.5 text-[13px] font-bold text-ink">Outcome</span>
         <span className="text-[17px] font-semibold md:text-[19px]">
           Work that runs faster and costs less, and stronger sales and growth.

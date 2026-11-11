@@ -34,13 +34,16 @@ function VoiceChip({ x, y, t }: { x: number; y: number; t: string }) {
 
 export function ListeningMap() {
   return (
-    <div className="relative w-full" style={{ aspectRatio: `${W} / ${H}` }} role="img" aria-label="Diagram: owner, managers and frontline staff all feed into one Growth Audit report with a cost on each problem">
+    <div data-draw className="relative w-full" style={{ aspectRatio: `${W} / ${H}` }} role="img" aria-label="Diagram: owner, managers and frontline staff all feed into one Growth Audit report with a cost on each problem">
       <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 h-full w-full" aria-hidden>
         {rows.flatMap((row) =>
           row.xs.map((x) => {
             const midY = (row.y + target.y + 90) / 2;
             return (
               <path
+                className="draw"
+                pathLength={1}
+                style={{ ["--dd" as string]: `${400 + row.y * 2}ms` }}
                 key={`${row.label}-${x}`}
                 d={`M${x} ${row.y} C${x} ${midY} ${target.x} ${midY - 40} ${target.x} ${target.y}`}
                 fill="none"
@@ -58,7 +61,7 @@ export function ListeningMap() {
         ))}
         {rows.flatMap((row) =>
           row.xs.map((x, i) => (
-            <g key={`n-${row.label}-${x}`}>
+            <g key={`n-${row.label}-${x}`} className="pop" style={{ ["--dd" as string]: `${row.y * 2 + i * 40}ms` }}>
               {row.label === "Frontline" && ringed.has(i) && (
                 <>
                   <circle cx={x} cy={row.y} r={row.r + 11} fill="none" stroke="#86CC59" strokeOpacity="0.7" strokeWidth="1.5" />
@@ -75,7 +78,7 @@ export function ListeningMap() {
       <VoiceChip x={460} y={330} t="0:24" />
 
       <div
-        className="absolute flex flex-col gap-2 rounded-[20px] bg-white p-3 text-ink shadow-[0_20px_44px_-4px_rgba(3,20,8,0.4),0_0_30px_rgba(134,204,89,0.2)] sm:gap-2.5 sm:p-5"
+        className="float absolute flex flex-col gap-2 rounded-[20px] bg-white p-3 text-ink shadow-[0_20px_44px_-4px_rgba(3,20,8,0.4),0_0_30px_rgba(134,204,89,0.2)] sm:gap-2.5 sm:p-5"
         style={{ left: pct(target.x - 160, W), top: pct(target.y, H), width: pct(320, W) }}
       >
         <div className="flex items-center">

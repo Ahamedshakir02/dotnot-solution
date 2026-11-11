@@ -28,7 +28,7 @@ export function ShareRequirement() {
 
         <div className="flex flex-col gap-4">
           <p className="text-xs font-bold tracking-[0.1em] text-lime uppercase">What happens next</p>
-          <ol className="grid gap-5 sm:grid-cols-3 sm:gap-0">
+          <ol data-stagger className="grid gap-5 sm:grid-cols-3 sm:gap-0">
             {next.map(([t, b], i) => (
               <li key={t} className="flex flex-col gap-2.5">
                 <span className="flex items-center">
@@ -50,7 +50,7 @@ export function ShareRequirement() {
           </ol>
         </div>
 
-        <div className="flex items-center gap-4 rounded-[18px] border border-white/15 bg-white/[0.06] p-4">
+        <div data-reveal className="flex items-center gap-4 rounded-[18px] border border-white/15 bg-white/[0.06] p-4">
           <span className="hidden sm:block">
             <QrCode value={requirementLink()} size={88} label="QR code that opens Dotnot's agent on WhatsApp" />
           </span>

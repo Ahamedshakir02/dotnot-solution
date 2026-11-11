@@ -14,7 +14,7 @@ export function GrowthAuditTeaser() {
     <Section id="growth-audit" tone="brand" inner="grid items-center gap-12 lg:grid-cols-[360px_1fr] lg:gap-20">
       <Ring size={600} className="top-[-200px] left-[-200px]" />
       <PhoneChat
-        className="mx-auto h-[600px] w-full max-w-[320px] lg:h-[680px] lg:max-w-none"
+        className="float mx-auto h-[600px] w-full max-w-[320px] lg:h-[680px] lg:max-w-none"
         lines={[
           { from: "agent", text: "Hi. What slows your work down most in a normal week?" },
           { from: "voice", duration: "0:31" },
@@ -32,7 +32,7 @@ export function GrowthAuditTeaser() {
           title="We start by listening to the people who do the work."
           accent="the people who do the work."
         />
-        <ol>
+        <ol data-stagger>
           {steps.map(([t, b], i) => (
             <li key={t} className="flex items-center gap-5 border-t border-white/12 py-4">
               <span className="text-[22px] font-extrabold text-lime">0{i + 1}</span>

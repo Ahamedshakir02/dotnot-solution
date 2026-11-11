@@ -13,7 +13,7 @@ const variants: Record<Variant, string> = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4 text-[15px] font-bold leading-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime md:text-base";
+  "group inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4 text-[15px] font-bold leading-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime md:text-base";
 
 export function ButtonLink({
   href,
@@ -56,7 +56,7 @@ export function ShareButton({
       className={cn(base, variants[variant], className)}
     >
       {label}
-      <span aria-hidden>→</span>
+      <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
       {tag && (
         <span
           className={cn(

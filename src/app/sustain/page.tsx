@@ -18,10 +18,10 @@ const PULSE = "0,80 90,80 110,60 125,96 140,40 155,80 260,78 280,58 295,92 310,3
 export default function SustainPage() {
   return (
     <>
-      <main>
+      <main className="page-in">
         {/* 01 Hero — health monitor */}
-        <section className="relative overflow-hidden bg-paper">
-          <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="pointer-events-none absolute bottom-0 left-0 h-[110px] w-full" aria-hidden>
+        <section data-draw className="relative overflow-hidden bg-paper">
+          <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="wipe pointer-events-none absolute bottom-0 left-0 h-[110px] w-full" style={{ ["--dd" as string]: "300ms" }} aria-hidden>
             <polyline
               points="0,100 300,100 340,60 370,150 400,20 430,100 700,100 740,70 770,130 800,40 830,100 1100,100 1130,60 1160,120 1190,0 1220,100 1440,100"
               fill="none"
@@ -33,7 +33,7 @@ export default function SustainPage() {
           </svg>
           <Nav tone="light" />
           <div className="container-x relative grid items-center gap-12 pt-6 pb-16 lg:grid-cols-[1fr_560px] lg:pb-28">
-            <div className="flex flex-col gap-6">
+            <div data-stagger className="flex flex-col gap-6">
               <p className="text-[13px] font-medium text-muted">
                 <Link href="/" className="hover:text-ink">Home</Link> / Sustain
               </p>
@@ -49,14 +49,14 @@ export default function SustainPage() {
               <ShareButton variant="green" className="self-start" />
             </div>
 
-            <div className="flex flex-col gap-4 rounded-[28px] border border-line bg-white p-6 shadow-[0_30px_60px_rgba(13,51,26,0.10)] md:p-7">
+            <div data-reveal className="flex flex-col gap-4 rounded-[28px] border border-line bg-white p-6 shadow-[0_30px_60px_rgba(13,51,26,0.10)] md:p-7">
               <div className="flex items-center gap-3">
                 <span className="text-lg font-bold">Business health</span>
                 <span className="ml-auto flex items-center gap-1.5 rounded-full bg-tint px-2.5 py-1 text-[11px] font-bold text-gtext">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-brand" /> All systems live
                 </span>
               </div>
-              <svg viewBox="0 0 504 120" className="h-[110px] w-full rounded-2xl bg-paper" preserveAspectRatio="none" aria-hidden>
+              <svg viewBox="0 0 504 120" className="wipe h-[110px] w-full rounded-2xl bg-paper" style={{ ["--dd" as string]: "700ms" }} preserveAspectRatio="none" aria-hidden>
                 <defs>
                   <linearGradient id="su-area" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0" stopColor="#86CC59" stopOpacity="0.3" />
@@ -89,7 +89,7 @@ export default function SustainPage() {
         {/* 02 What you get */}
         <Section>
           <SectionHeader overline="What you get" title="Three things, after the build." accent="after the build." />
-          <ol className="mt-10 grid gap-5 md:mt-14 md:grid-cols-3">
+          <ol data-stagger className="mt-10 grid gap-5 md:mt-14 md:grid-cols-3">
             <Promise n="01" title="Tools that stay live" text="The systems we built keep running and stay up to date.">
               <div className="flex h-11 w-full gap-1">
                 {Array.from({ length: 30 }).map((_, i) => (
@@ -124,8 +124,8 @@ export default function SustainPage() {
             accent="not the finish line."
             lead="Without upkeep, new systems drift back to old habits. Sustain keeps the gains growing."
           />
-          <figure className="relative mt-10 md:mt-14">
-            <svg viewBox="0 0 1200 340" preserveAspectRatio="none" className="h-[220px] w-full md:h-auto" aria-hidden>
+          <figure data-draw className="relative mt-10 md:mt-14">
+            <svg viewBox="0 0 1200 340" preserveAspectRatio="none" className="wipe h-[220px] w-full md:h-auto" style={{ ["--dd" as string]: "200ms" }} aria-hidden>
               {[40, 130, 220, 310].map((y) => (
                 <line key={y} x1="0" x2="1200" y1={y} y2={y} stroke="#fff" strokeOpacity="0.08" />
               ))}
@@ -157,7 +157,7 @@ export default function SustainPage() {
 
 function Promise({ n, title, text, dark, children }: { n: string; title: string; text: string; dark?: boolean; children: React.ReactNode }) {
   return (
-    <li className={cn("flex flex-col overflow-hidden rounded-3xl", dark ? "bg-brand-gradient text-white" : "border border-line bg-white")}>
+    <li className={cn("lift flex flex-col overflow-hidden rounded-3xl", dark ? "bg-brand-gradient text-white" : "border border-line bg-white")}>
       <div className="flex min-h-[170px] flex-col justify-center gap-2 p-6" aria-hidden>
         {children}
       </div>
