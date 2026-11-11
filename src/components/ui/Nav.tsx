@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 import { navLinks, requirementLink } from "@/lib/site";
 import { Logo } from "./Logo";
@@ -10,9 +10,15 @@ import { Logo } from "./Logo";
 export function Nav({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const menu = useRef<HTMLDialogElement>(null);
   const dark = tone === "dark";
 
+  // A modal <dialog>: Esc closes it, focus stays inside, and returns to the menu button after.
   useEffect(() => {
+    const d = menu.current;
+    if (!d) return;
+    if (open && !d.open) d.showModal();
+    if (!open && d.open) d.close();
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
@@ -63,6 +69,8 @@ export function Nav({ tone = "dark" }: { tone?: "dark" | "light" }) {
         type="button"
         onClick={() => setOpen(true)}
         aria-label="Open menu"
+        aria-expanded={open}
+        aria-controls="site-menu"
         className={cn("ml-auto flex h-11 w-11 items-center justify-center rounded-full border sm:ml-0 lg:hidden", dark ? "border-white/30 text-white" : "border-ink/20 text-ink")}
       >
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden>
@@ -70,8 +78,16 @@ export function Nav({ tone = "dark" }: { tone?: "dark" | "light" }) {
         </svg>
       </button>
 
-      {open && (
-        <div className="bg-brand-gradient fixed inset-0 z-50 flex flex-col px-5 py-5 text-white lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+      <dialog
+        ref={menu}
+        id="site-menu"
+        aria-label="Menu"
+        onClose={() => setOpen(false)}
+        // any link inside (logo included) closes the menu, even if it points to this page
+        onClick={(e) => (e.target as HTMLElement).closest("a") && setOpen(false)}
+        className="bg-brand-gradient m-0 h-dvh max-h-none w-full max-w-none p-0 text-white backdrop:bg-transparent open:flex lg:hidden"
+      >
+        <div className="flex w-full flex-col px-5 py-5">
           <div className="flex items-center">
             <Logo />
             <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="ml-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-2xl">
@@ -80,7 +96,12 @@ export function Nav({ tone = "dark" }: { tone?: "dark" | "light" }) {
           </div>
           <nav aria-label="Mobile" className="mt-12 flex flex-col">
             {navLinks.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="border-b border-white/10 py-4 text-[28px] font-light tracking-tight">
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={pathname === l.href ? "page" : undefined}
+                className={cn("border-b border-white/10 py-4 text-[28px] font-light tracking-tight", pathname === l.href && "font-bold text-lime")}
+              >
                 {l.label}
               </Link>
             ))}
@@ -89,7 +110,7 @@ export function Nav({ tone = "dark" }: { tone?: "dark" | "light" }) {
             Share your requirement →
           </a>
         </div>
-      )}
+      </dialog>
     </header>
   );
 }
