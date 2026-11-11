@@ -28,7 +28,7 @@ export default function GrowthAuditPage() {
     <>
       <main className="page-in">
         {/* 01 Hero */}
-        <section className="bg-brand-gradient relative overflow-hidden text-white">
+        <section data-own-cta className="bg-brand-gradient relative overflow-hidden text-white">
           <Ring size={760} className="top-[-180px] right-[-140px] border-lime/10" />
           <Nav tone="dark" />
           <div className="container-x relative grid items-center gap-10 pt-6 pb-16 lg:grid-cols-[1fr_600px] lg:gap-8 lg:pb-24">

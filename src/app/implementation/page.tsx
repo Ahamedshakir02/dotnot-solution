@@ -32,6 +32,7 @@ export default function ImplementationPage() {
       <main className="page-in">
         {/* 01 Hero */}
         <section
+          data-own-cta
           className="relative overflow-hidden bg-[#0a2614] text-white"
           style={{
             backgroundImage:

@@ -17,6 +17,7 @@ export function Section({
   className,
   inner,
   clip,
+  ownCta,
   children,
 }: {
   id?: string;
@@ -25,10 +26,12 @@ export function Section({
   inner?: string;
   /** overflow: clip instead of hidden, so sticky children still stick */
   clip?: boolean;
+  /** has its own share button, so the phone bar hides here */
+  ownCta?: boolean;
   children: ReactNode;
 }) {
   return (
-    <section id={id} className={cn("relative py-16 md:py-28", clip ? "overflow-clip" : "overflow-hidden", tones[tone], className)}>
+    <section id={id} data-own-cta={ownCta || undefined} className={cn("relative py-16 md:py-28", clip ? "overflow-clip" : "overflow-hidden", tones[tone], className)}>
       <div className={cn("container-x relative", inner)}>{children}</div>
     </section>
   );

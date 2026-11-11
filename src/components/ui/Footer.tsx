@@ -15,7 +15,7 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-lime/25 bg-forest pt-16 pb-28 text-white md:pt-20 md:pb-10">
+    <footer data-own-cta className="relative overflow-hidden border-t border-lime/25 bg-forest pt-16 pb-28 text-white md:pt-20 md:pb-10">
       <Ring size={420} className="-top-36 right-[-60px]" />
       <div className="container-x relative">
         <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr_1.2fr] md:gap-12">

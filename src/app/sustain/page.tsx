@@ -20,7 +20,7 @@ export default function SustainPage() {
     <>
       <main className="page-in">
         {/* 01 Hero */}
-        <section data-draw className="relative overflow-hidden bg-paper">
+        <section data-own-cta data-draw className="relative overflow-hidden bg-paper">
           <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="wipe pointer-events-none absolute bottom-0 left-0 h-[110px] w-full" style={{ ["--dd" as string]: "300ms" }} aria-hidden>
             <polyline
               points="0,100 300,100 340,60 370,150 400,20 430,100 700,100 740,70 770,130 800,40 830,100 1100,100 1130,60 1160,120 1190,0 1220,100 1440,100"

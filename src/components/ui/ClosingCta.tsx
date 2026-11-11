@@ -3,7 +3,7 @@ import { Ring, SplitTitle } from "./Section";
 
 export function ClosingCta({ title, accent, lead }: { title: string; accent: string; lead: string }) {
   return (
-    <section className="bg-brand-gradient relative overflow-hidden py-20 text-white md:py-[120px]">
+    <section data-own-cta className="bg-brand-gradient relative overflow-hidden py-20 text-white md:py-[120px]">
       <Ring size={900} className="top-[-300px] left-1/2 -translate-x-1/2 border-lime/10" />
       <div data-stagger className="container-x relative flex flex-col items-center gap-6 text-center">
         <SplitTitle
