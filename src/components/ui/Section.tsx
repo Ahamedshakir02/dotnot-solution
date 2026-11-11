@@ -16,16 +16,19 @@ export function Section({
   tone = "white",
   className,
   inner,
+  clip,
   children,
 }: {
   id?: string;
   tone?: Tone;
   className?: string;
   inner?: string;
+  /** overflow: clip instead of hidden, so sticky children still stick */
+  clip?: boolean;
   children: ReactNode;
 }) {
   return (
-    <section id={id} className={cn("relative overflow-hidden py-16 md:py-28", tones[tone], className)}>
+    <section id={id} className={cn("relative py-16 md:py-28", clip ? "overflow-clip" : "overflow-hidden", tones[tone], className)}>
       <div className={cn("container-x relative", inner)}>{children}</div>
     </section>
   );

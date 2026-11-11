@@ -35,7 +35,7 @@ const inProgress = [
 
 export function Results() {
   return (
-    <Section id="results">
+    <Section id="results" clip>
       <SectionHeader overline="Results" title="What changes when the business is diagnosed first." accent="is diagnosed first." />
 
       <ScrollRail className="no-scrollbar -mx-5 mt-10 flex gap-4 overflow-x-auto px-5 md:mx-0 md:mt-14 md:grid md:grid-cols-3 md:gap-6 md:px-0">

@@ -13,7 +13,7 @@ const five: { t: string; b: string; p?: string }[] = [
 
 export function HowWeDiffer() {
   return (
-    <Section id="differ" tone="paper">
+    <Section id="differ" tone="paper" clip>
       <SectionHeader
         overline="How we’re different"
         title="We find it, price it, build it, and hand it over."
