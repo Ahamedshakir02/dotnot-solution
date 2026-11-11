@@ -35,9 +35,6 @@ const inProgress = [
 export function Results() {
   return (
     <Section id="results">
-      <span aria-hidden className="text-outline-green absolute top-0 right-12 hidden xl:right-[110px] text-[220px] leading-[200px] font-extrabold tracking-[-0.06em] lg:block">
-        05
-      </span>
       <SectionHeader overline="Results" title="What changes when the business is diagnosed first." accent="is diagnosed first." />
 
       <ul data-stagger className="no-scrollbar -mx-5 mt-10 flex snap-x scroll-px-5 gap-4 overflow-x-auto px-5 md:mx-0 md:mt-14 md:grid md:grid-cols-3 md:gap-6 md:px-0">

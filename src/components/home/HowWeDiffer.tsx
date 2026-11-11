@@ -13,9 +13,6 @@ const five: { t: string; b: string; p?: string }[] = [
 export function HowWeDiffer() {
   return (
     <Section id="differ" tone="paper">
-      <span aria-hidden className="text-outline-green absolute top-0 right-12 hidden xl:right-[110px] text-[220px] leading-[200px] font-extrabold tracking-[-0.06em] lg:block">
-        04
-      </span>
       <SectionHeader
         overline="How we’re different"
         title="We find it, price it, build it, and hand it over."

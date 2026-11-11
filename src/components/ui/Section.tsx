@@ -35,11 +35,10 @@ export function Overline({ children, dark }: { children: ReactNode; dark?: boole
   return (
     <p
       className={cn(
-        "flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] md:text-[13px]",
+        "text-[11px] font-semibold uppercase tracking-[0.12em] md:text-[13px]",
         dark ? "text-lime" : "text-brand",
       )}
     >
-      <span aria-hidden className={cn("h-1 w-[22px] rounded-full", dark ? "bg-lime" : "bg-brand")} />
       {children}
     </p>
   );

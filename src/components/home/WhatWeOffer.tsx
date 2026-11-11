@@ -46,9 +46,6 @@ function Join() {
 export function WhatWeOffer() {
   return (
     <Section id="offer">
-      <span aria-hidden className="text-outline-green absolute top-0 right-12 hidden xl:right-[110px] text-[220px] leading-[200px] font-extrabold tracking-[-0.06em] lg:block">
-        03
-      </span>
       <SectionHeader
         overline="What we offer"
         title="One path, from finding the problem to keeping the fix working."

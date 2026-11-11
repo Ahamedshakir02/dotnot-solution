@@ -67,9 +67,6 @@ export function IsThisYou() {
 
   return (
     <Section id="is-this-you">
-      <span aria-hidden className="text-outline-green absolute top-0 right-12 hidden xl:right-[110px] text-[220px] leading-[200px] font-extrabold tracking-[-0.06em] lg:block">
-        02
-      </span>
       <SectionHeader overline="Is this you?" title="Your business has grown. Has the way it runs?" accent="Has the way it runs?" />
       <p className="mt-4 flex items-center gap-2 text-sm font-medium text-muted">
         <span className="h-2 w-2 rounded-full bg-brand" />

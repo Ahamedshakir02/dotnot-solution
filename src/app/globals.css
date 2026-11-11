@@ -87,11 +87,6 @@
   -webkit-text-stroke: 1.5px rgb(134 204 89 / 0.3);
 }
 
-@utility text-outline-green {
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgb(33 138 67 / 0.2);
-}
-
 @utility no-scrollbar {
   scrollbar-width: none;
   &::-webkit-scrollbar {

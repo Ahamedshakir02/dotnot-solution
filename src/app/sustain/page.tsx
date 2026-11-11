@@ -90,7 +90,7 @@ export default function SustainPage() {
         <Section>
           <SectionHeader overline="What you get" title="Three things, after the build." accent="after the build." />
           <ol data-stagger className="mt-10 grid gap-5 md:mt-14 md:grid-cols-3">
-            <Promise n="01" title="Tools that stay live" text="The systems we built keep running and stay up to date.">
+            <Promise title="Tools that stay live" text="The systems we built keep running and stay up to date.">
               <div className="flex h-11 w-full gap-1">
                 {Array.from({ length: 30 }).map((_, i) => (
                   <span key={i} className={cn("flex-1 rounded-sm", i === 17 ? "bg-tint2" : "bg-brand")} />
@@ -100,14 +100,14 @@ export default function SustainPage() {
                 Last 30 days<span className="ml-auto font-bold text-brand">Running</span>
               </p>
             </Promise>
-            <Promise dark n="02" title="Regular health reviews" text="We check the numbers with you at a set rhythm.">
+            <Promise dark title="Regular health reviews" text="We check the numbers with you at a set rhythm.">
               <div className="grid w-full max-w-[230px] grid-cols-7 gap-1.5">
                 {Array.from({ length: 28 }).map((_, i) => (
                   <span key={i} className={cn("aspect-square rounded-md", [6, 13, 20, 27].includes(i) ? "bg-lime" : "bg-white/10")} />
                 ))}
               </div>
             </Promise>
-            <Promise n="03" title="Support when something changes" text="New branch, new hire, new product: we adjust the system.">
+            <Promise title="Support when something changes" text="New branch, new hire, new product: we adjust the system.">
               <p className="max-w-[85%] rounded-2xl rounded-tl-sm bg-paper px-3 py-2.5 text-[13px]">We’re opening a fourth branch next month.</p>
               <p className="ml-auto max-w-[85%] rounded-2xl rounded-tr-sm bg-deep px-3 py-2.5 text-[13px] text-white">Got it. We’ll set it up in the same system.</p>
             </Promise>
@@ -155,14 +155,13 @@ export default function SustainPage() {
   );
 }
 
-function Promise({ n, title, text, dark, children }: { n: string; title: string; text: string; dark?: boolean; children: React.ReactNode }) {
+function Promise({ title, text, dark, children }: { title: string; text: string; dark?: boolean; children: React.ReactNode }) {
   return (
     <li className={cn("flex flex-col overflow-hidden rounded-3xl", dark ? "bg-brand-gradient text-white" : "border border-line bg-white")}>
       <div className="flex min-h-[170px] flex-col justify-center gap-2 p-6" aria-hidden>
         {children}
       </div>
       <div className="flex flex-col gap-2 px-6 pt-1 pb-7">
-        <span className={cn("text-sm font-extrabold", dark ? "text-lime" : "text-brand")}>{n}</span>
         <h3 className="text-[22px] font-bold">{title}</h3>
         <p className={cn("text-[15px] leading-[23px]", dark ? "text-white/75" : "text-muted")}>{text}</p>
       </div>

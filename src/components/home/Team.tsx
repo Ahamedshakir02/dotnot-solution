@@ -12,9 +12,6 @@ const team: { initials: string; name: string; role: string; photo?: string }[] =
 export function Team() {
   return (
     <Section id="team">
-      <span aria-hidden className="text-outline-green absolute top-0 right-12 hidden xl:right-[110px] text-[220px] leading-[200px] font-extrabold tracking-[-0.06em] lg:block">
-        07
-      </span>
       <SectionHeader overline="Team" title="Strategy, operations, product and technology at one table." accent="at one table." />
       <ul data-stagger className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:gap-6 lg:grid-cols-4">
         {team.map((p) => (
