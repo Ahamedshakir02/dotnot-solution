@@ -100,7 +100,8 @@ export default function ImplementationPage() {
             lead="Our role shrinks as your team takes over. Success means your team runs it without us."
           />
           <div data-draw className="relative mt-10 md:mt-14">
-            <ol data-stagger className="grid overflow-hidden rounded-3xl md:grid-cols-3">
+            <div className="relative overflow-hidden rounded-3xl">
+            <ol data-stagger className="grid md:grid-cols-3">
               {phases.map((p, i) => (
                 <li key={p.name} className={cn("flex flex-col gap-2 p-6 md:min-h-[300px] md:p-7", p.tone)}>
                   <span className="text-sm font-extrabold text-gtext">0{i + 1}</span>
@@ -110,9 +111,10 @@ export default function ImplementationPage() {
               ))}
             </ol>
             <svg viewBox="0 0 1200 300" preserveAspectRatio="none" className="wipe pointer-events-none absolute inset-0 hidden h-full w-full md:block" style={{ ["--dd" as string]: "600ms" }} aria-hidden>
-              <path d="M0 160 C400 175 800 250 1200 280" fill="none" stroke="#0E3B1D" strokeWidth="3" vectorEffect="non-scaling-stroke" />
-              <path d="M0 280 C400 265 800 190 1200 160" fill="none" stroke="#218A43" strokeWidth="3" vectorEffect="non-scaling-stroke" />
+              <path d="M0 170 C400 182 800 240 1200 262" fill="none" stroke="#0E3B1D" strokeWidth="3" vectorEffect="non-scaling-stroke" />
+              <path d="M0 262 C400 250 800 192 1200 170" fill="none" stroke="#218A43" strokeWidth="3" vectorEffect="non-scaling-stroke" />
             </svg>
+            </div>
             <div className="mt-4 hidden flex-wrap gap-x-6 gap-y-2 text-[13px] font-bold md:flex">
               <span className="flex items-center gap-2 text-brand">
                 <span className="h-[3px] w-6 rounded bg-brand" /> Your team’s ownership
