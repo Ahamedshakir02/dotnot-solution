@@ -124,6 +124,13 @@
     opacity: 1;
     transform: none;
   }
+  /* seats above the team table slide down to it */
+  .js [data-stagger] > .from-above {
+    transform: translateY(-28px);
+  }
+  .js [data-stagger].in > .from-above {
+    transform: none;
+  }
 
   /* line draw: paths need pathLength="1" */
   .js [data-draw] .draw {
