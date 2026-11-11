@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ShareButton } from "@/components/ui/Button";
 import { Ring, Section, SectionHeader, Tick } from "@/components/ui/Section";
 import { cn } from "@/lib/cn";
+import { requirementLink } from "@/lib/site";
 
 const pains = [
   "Decisions still come back to me",
@@ -21,14 +22,15 @@ const pains = [
 function verdict(score: number) {
   if (score >= 8) return { title: "We should talk now.", cta: "Let’s talk now", zone: 2 };
   if (score >= 5) return { title: "A Growth Audit is the right start.", cta: "Start with a Growth Audit", zone: 1 };
+  if (score >= 1) return { title: "Keep ticking what’s true.", cta: "Share your requirement", zone: 0 };
   return { title: "Tick what sounds familiar.", cta: "Share your requirement", zone: 0 };
 }
 
-function Gauge({ score }: { score: number }) {
+function Gauge({ score, small }: { score: number; small?: boolean }) {
   const r = 52;
   const c = 2 * Math.PI * r;
   return (
-    <svg viewBox="0 0 120 120" className="h-[96px] w-[96px] shrink-0 md:h-[120px] md:w-[120px]" aria-hidden>
+    <svg viewBox="0 0 120 120" className={small ? "h-12 w-12 shrink-0" : "h-[96px] w-[96px] shrink-0 md:h-[120px] md:w-[120px]"} aria-hidden>
       <circle cx="60" cy="60" r={r} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="11" />
       <circle
         cx="60"
@@ -66,11 +68,11 @@ export function IsThisYou() {
   const message = `Hi Dotnot, I ticked ${score} of 10 on "Is this you?". I'd like to share a requirement.`;
 
   return (
-    <Section id="is-this-you">
-      <SectionHeader overline="Is this you?" title="Your business has grown. Has the way it runs?" accent="Has the way it runs?" />
+    <Section id="is-this-you" ownCta clip>
+      <SectionHeader overline="Is this you?" title="Does this sound like your business?" accent="like your business?" />
       <p className="mt-4 flex items-center gap-2 text-sm font-medium text-muted">
         <span className="h-2 w-2 rounded-full bg-brand" />
-        Tap to tick. Your score and next step update as you go.
+        Tick what’s true. Your score updates as you go.
       </p>
 
       <div className="mt-8 grid gap-6 md:mt-12 lg:grid-cols-[1fr_384px] lg:gap-8">
@@ -96,7 +98,24 @@ export function IsThisYou() {
           })}
         </ul>
 
-        <div data-reveal aria-live="polite" className="bg-brand-gradient relative flex flex-col gap-5 overflow-hidden rounded-3xl p-6 text-white md:p-9">
+        {/* phone: a small score that stays in view while ticking */}
+        <div aria-live="polite" className="bg-brand-gradient sticky bottom-3 z-30 flex items-center gap-3 rounded-[20px] p-3 text-white shadow-[0_14px_32px_-8px_rgba(3,20,8,0.6)] lg:hidden">
+          <Gauge score={score} small />
+          <span className="flex min-w-0 flex-1 flex-col">
+            <span className="text-xs font-semibold text-lime">{score} of 10 ticked</span>
+            <span className="text-[15px] leading-5 font-bold">{v.title}</span>
+          </span>
+          <a
+            href={requirementLink(message)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 rounded-full bg-lime px-4 py-3 text-sm font-bold text-ink"
+          >
+            Share →
+          </a>
+        </div>
+
+        <div data-reveal aria-live="polite" className="bg-brand-gradient relative hidden flex-col gap-5 overflow-hidden rounded-3xl p-6 text-white md:p-9 lg:flex">
           <Ring size={260} className="-top-[90px] right-[-60px] border-lime/25" />
           <p className="text-[13px] font-semibold tracking-[0.12em] text-lime uppercase">Your result</p>
           <div className="flex items-center gap-5">
