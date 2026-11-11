@@ -14,7 +14,7 @@ import { Footer } from "@/components/ui/Footer";
 export default function HomePage() {
   return (
     <>
-      <main>
+      <main className="page-in">
         <Hero />
         <ResultsTicker />
         <Clientele />

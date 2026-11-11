@@ -29,7 +29,7 @@ const phases = [
 export default function ImplementationPage() {
   return (
     <>
-      <main>
+      <main className="page-in">
         {/* 01 Hero */}
         <section
           className="relative overflow-hidden bg-[#0a2614] text-white"
@@ -41,7 +41,7 @@ export default function ImplementationPage() {
         >
           <Nav tone="dark" />
           <div className="container-x relative grid items-center gap-12 pt-6 pb-16 lg:grid-cols-[1fr_560px] lg:pb-24">
-            <div className="flex flex-col gap-6">
+            <div data-stagger className="flex flex-col gap-6">
               <p className="text-[13px] font-medium text-white/55">
                 <Link href="/" className="hover:text-white">Home</Link> / Implementation
               </p>

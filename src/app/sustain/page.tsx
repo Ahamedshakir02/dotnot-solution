@@ -18,7 +18,7 @@ const PULSE = "0,80 90,80 110,60 125,96 140,40 155,80 260,78 280,58 295,92 310,3
 export default function SustainPage() {
   return (
     <>
-      <main>
+      <main className="page-in">
         {/* 01 Hero */}
         <section data-draw className="relative overflow-hidden bg-paper">
           <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="wipe pointer-events-none absolute bottom-0 left-0 h-[110px] w-full" style={{ ["--dd" as string]: "300ms" }} aria-hidden>
@@ -33,7 +33,7 @@ export default function SustainPage() {
           </svg>
           <Nav tone="light" />
           <div className="container-x relative grid items-center gap-12 pt-6 pb-16 lg:grid-cols-[1fr_560px] lg:pb-28">
-            <div className="flex flex-col gap-6">
+            <div data-stagger className="flex flex-col gap-6">
               <p className="text-[13px] font-medium text-muted">
                 <Link href="/" className="hover:text-ink">Home</Link> / Sustain
               </p>
@@ -49,7 +49,7 @@ export default function SustainPage() {
               <ShareButton variant="green" className="self-start" />
             </div>
 
-            <div className="flex flex-col gap-4 rounded-[28px] border border-line bg-white p-6 shadow-[0_30px_60px_rgba(13,51,26,0.10)] md:p-7">
+            <div data-reveal className="flex flex-col gap-4 rounded-[28px] border border-line bg-white p-6 shadow-[0_30px_60px_rgba(13,51,26,0.10)] md:p-7">
               <div className="flex items-center gap-3">
                 <span className="text-lg font-bold">Business health</span>
                 <span className="ml-auto flex items-center gap-1.5 rounded-full bg-tint px-2.5 py-1 text-[11px] font-bold text-gtext">
