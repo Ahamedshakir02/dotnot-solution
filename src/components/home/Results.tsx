@@ -21,8 +21,8 @@ const cases = [
   {
     client: "Apparel manufacturer",
     sector: "Manufacturing · India",
-    number: "₹3 Cr",
-    label: "about, from the Growth Audit",
+    number: "≈₹3 Cr",
+    label: "found by the Growth Audit",
     bars: [26, 88],
     did: "Growth Audit, started August 2026.",
   },
@@ -64,13 +64,13 @@ export function Results() {
 
       <ul data-stagger className="mt-6 grid gap-4 md:grid-cols-2">
         {inProgress.map((p) => (
-          <li key={p.name} className="flex items-center gap-4 rounded-2xl bg-paper px-6 py-5">
+          <li key={p.name} className="grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-2.5 rounded-2xl bg-paper px-5 py-4 sm:flex sm:px-6 sm:py-5">
             <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-lime" />
             <span className="flex flex-col">
               <span className="text-[15px] font-semibold">{p.name}</span>
               <span className="text-sm text-muted">{p.text}</span>
             </span>
-            <span className="ml-auto shrink-0 rounded-full border border-line bg-white px-3 py-1.5 text-xs font-bold text-gtext">{p.status}</span>
+            <span className="col-start-2 w-fit shrink-0 rounded-full border border-line bg-white px-3 py-1.5 text-xs font-bold text-gtext sm:ml-auto">{p.status}</span>
           </li>
         ))}
       </ul>
