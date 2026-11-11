@@ -128,7 +128,8 @@ export function IsThisYou() {
           })}
         </ul>
 
-        <div data-reveal aria-live="polite" className="bg-brand-gradient relative hidden flex-col gap-5 overflow-hidden rounded-3xl p-6 text-white md:p-9 lg:flex">
+        {/* the result card shows on every screen; the phone share bar steps aside while it is in view */}
+        <div data-reveal data-own-cta aria-live="polite" className="bg-brand-gradient relative flex flex-col gap-5 overflow-hidden rounded-3xl p-6 text-white md:p-9">
           <Ring size={260} className="-top-[160px] right-[-60px] border-lime/25" />
           <p className="text-[13px] font-semibold tracking-[0.12em] text-lime uppercase">Your result</p>
           <div className="flex items-center gap-5">

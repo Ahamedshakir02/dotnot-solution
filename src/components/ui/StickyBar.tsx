@@ -33,11 +33,12 @@ function MiniGauge({ score }: { score: number }) {
   );
 }
 
-// One share bar for phones, on every page. It stays away while the page's hero
-// (which has its own button) is on screen. Inside "Is this you?" it shows the score.
+// One share bar for phones, on every page. It stays away while the page's hero, or a
+// block with its own share button ([data-own-cta]), is on screen. Inside "Is this you?" it shows the score.
 export function StickyBar() {
   const pathname = usePathname();
   const [heroOn, setHeroOn] = useState(true);
+  const [ownOn, setOwnOn] = useState(false);
   const [check, setCheck] = useState<Checklist>(null);
 
   useEffect(() => {
@@ -50,6 +51,28 @@ export function StickyBar() {
     io.observe(hero);
     return () => io.disconnect();
   }, [pathname]);
+
+  // a block with its own button counts once a quarter of it is in view, not when its edge peeks in
+  useEffect(() => {
+    const blocks = document.querySelectorAll("[data-own-cta]");
+    const seen = new Set<Element>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) seen.add(e.target);
+          else seen.delete(e.target);
+        }
+        setOwnOn(seen.size > 0);
+      },
+      { threshold: 0.25 },
+    );
+    blocks.forEach((b) => io.observe(b));
+    return () => {
+      io.disconnect();
+      setOwnOn(false);
+    };
+  }, [pathname]);
+  const hidden = heroOn || ownOn;
 
   useEffect(() => {
     const on = (e: Event) => setCheck((e as CustomEvent<Checklist>).detail);
@@ -68,13 +91,13 @@ export function StickyBar() {
       href={requirementLink(ticked ? check!.message : undefined)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-hidden={heroOn}
-      tabIndex={heroOn ? -1 : undefined}
+      aria-hidden={hidden}
+      tabIndex={hidden ? -1 : undefined}
       className={cn(
         "fixed inset-x-4 bottom-4 z-40 flex items-center gap-3 rounded-full py-2.5 pr-2.5 text-white shadow-[0_8px_24px_rgba(0,0,0,0.25)] transition-[translate,opacity,background-color,padding] duration-300 md:hidden",
         scoring ? "bg-deep" : "bg-ink",
         withRing ? "pl-2.5" : "pl-5",
-        heroOn ? "pointer-events-none translate-y-[140%] opacity-0" : "translate-y-0 opacity-100",
+        hidden ? "pointer-events-none translate-y-[140%] opacity-0" : "translate-y-0 opacity-100",
       )}
     >
       {withRing && <MiniGauge score={check!.score} />}
