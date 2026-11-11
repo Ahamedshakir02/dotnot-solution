@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ShareButton } from "@/components/ui/Button";
 import { Ring, Section, SectionHeader, Tick } from "@/components/ui/Section";
 import { cn } from "@/lib/cn";
@@ -54,6 +54,29 @@ function Gauge({ score, small }: { score: number; small?: boolean }) {
 
 export function IsThisYou() {
   const [ticked, setTicked] = useState<Set<number>>(new Set());
+  const list = useRef<HTMLUListElement>(null);
+  const [inList, setInList] = useState(false);
+
+  // phone score bar: only once the checklist has reached the upper part of the screen
+  useEffect(() => {
+    let frame = 0;
+    const check = () => {
+      frame = 0;
+      const el = list.current;
+      if (el) setInList(el.getBoundingClientRect().top < window.innerHeight * 0.35);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(check);
+    };
+    check();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
   const score = ticked.size;
   const v = verdict(score);
 
@@ -76,7 +99,7 @@ export function IsThisYou() {
       </p>
 
       <div className="mt-8 grid gap-6 md:mt-12 lg:grid-cols-[1fr_384px] lg:gap-8">
-        <ul data-stagger className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
+        <ul ref={list} data-stagger className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
           {pains.map((p, i) => {
             const on = ticked.has(i);
             return (
@@ -99,7 +122,13 @@ export function IsThisYou() {
         </ul>
 
         {/* phone: a small score that stays in view while ticking */}
-        <div aria-live="polite" className="bg-brand-gradient sticky bottom-3 z-30 flex items-center gap-3 rounded-[20px] p-3 text-white shadow-[0_14px_32px_-8px_rgba(3,20,8,0.6)] lg:hidden">
+        <div
+          aria-live="polite"
+          className={cn(
+            "bg-brand-gradient sticky bottom-3 z-30 flex items-center gap-3 rounded-[20px] p-3 text-white shadow-[0_14px_32px_-8px_rgba(3,20,8,0.6)] transition-[opacity,translate] duration-300 lg:hidden",
+            inList ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0",
+          )}
+        >
           <Gauge score={score} small />
           <span className="flex min-w-0 flex-1 flex-col">
             <span className="text-xs font-semibold text-lime">{score} of 10 ticked</span>
