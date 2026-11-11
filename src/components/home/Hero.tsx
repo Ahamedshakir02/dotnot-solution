@@ -19,6 +19,10 @@ export function Hero() {
 
       <div className="container-x relative grid items-center gap-12 pt-6 pb-12 md:pt-10 lg:grid-cols-[1fr_520px] lg:gap-14">
         <div data-stagger className="flex flex-col gap-6 md:gap-7">
+          <p className="inline-flex w-fit items-center gap-2 rounded-full border border-lime/50 px-3 py-1.5 text-xs font-semibold text-lime">
+            <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+            Grow forward.
+          </p>
           <h1 className="text-[42px] leading-[46px] font-light tracking-[-0.035em] md:text-[74px] md:leading-[76px]">
             Build a business that <span className="font-extrabold text-lime">works better</span>{" "}
             <span className="font-extrabold">as it grows.</span>

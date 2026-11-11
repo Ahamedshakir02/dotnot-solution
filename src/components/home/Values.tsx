@@ -1,4 +1,4 @@
-import { Section, SectionHeader } from "@/components/ui/Section";
+import { Ring, Section, SectionHeader } from "@/components/ui/Section";
 
 const values = [
   ["Build, don’t just advise", "Our job ends when something works, not when a report is delivered."],
@@ -21,6 +21,10 @@ export function Values() {
 
       <div className="mt-10 grid gap-4 md:mt-14 lg:grid-cols-[384px_1fr]">
         <div data-reveal className="bg-brand-gradient relative flex min-h-[320px] flex-col gap-4 overflow-hidden rounded-3xl p-8 text-white md:p-9">
+          <Ring size={320} className="right-[-80px] bottom-[-120px] border-lime/25" />
+          <span aria-hidden className="text-outline-lime absolute top-[-20px] right-4 text-[200px] leading-none font-extrabold tracking-[-0.06em]">
+            01
+          </span>
           <div className="flex-1" />
           <p className="text-xs font-bold tracking-[0.1em] text-lime uppercase">The one we start with</p>
           <h3 className="text-[34px] leading-[38px] font-extrabold tracking-[-0.03em] md:text-[40px] md:leading-[44px]">{first[0]}</h3>
