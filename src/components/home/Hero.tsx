@@ -13,12 +13,13 @@ const stats = [
 
 export function Hero() {
   return (
-    <section data-hero className="bg-brand-gradient relative overflow-hidden text-white">
+    // Fills the first screen (up to 1000px), so the next section never peeks in as a thin strip.
+    <section data-hero className="bg-brand-gradient relative flex min-h-[min(100svh,1000px)] flex-col overflow-hidden text-white">
       <Ring size={640} className="top-10 right-[-80px]" />
       <Ring size={300} color="white" className="top-[560px] left-[45%]" />
       <Nav tone="dark" />
 
-      <div className="container-x relative grid items-center gap-12 pt-6 pb-12 md:pt-10 lg:grid-cols-[1fr_520px] lg:gap-14">
+      <div className="container-x relative grid flex-1 items-center gap-12 pt-6 pb-12 md:pt-10 lg:grid-cols-[1fr_520px] lg:gap-14">
         <div data-stagger className="flex flex-col gap-6 md:gap-7">
           <h1 className="text-[42px] leading-[46px] font-light tracking-[-0.035em] md:text-[74px] md:leading-[76px]">
             Build a business that <span className="font-extrabold text-lime">works better</span>{" "}
