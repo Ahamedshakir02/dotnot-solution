@@ -19,8 +19,8 @@ const cases = [
     did: "The Growth Audit found misalignment and poor communication between departments.",
   },
   {
-    client: "Apparel manufacturer",
-    sector: "Manufacturing · India",
+    client: "Farfalla",
+    sector: "Kidswear · India",
     number: "₹3 Cr",
     label: "revenue loss identified",
     bars: [],

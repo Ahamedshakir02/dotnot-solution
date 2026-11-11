@@ -20,7 +20,6 @@ export const industries: { name: string; clients: Client[] }[] = [
     clients: [
       { name: "Pearl City", logo: L("pearl-city") },
       { name: "Evergreen Furniture", logo: L("evergreen") },
-      { name: "Apparel manufacturer", factory: true },
     ],
   },
   { name: "Restaurants", clients: [{ name: "Aslee Hindi", logo: L("aslee-hindi") }, { name: "Shawok", logo: L("shawok") }, { name: "Mr. Eggy", logo: L("mr-eggy") }] },
@@ -61,9 +60,9 @@ export const stories = [
     text: "The Growth Audit found misalignment and poor communication between departments.",
   },
   {
-    client: "Apparel manufacturer",
-    sector: "Manufacturing · India",
-    logo: undefined,
+    client: "Farfalla",
+    sector: "Kidswear · India",
+    logo: L("farfalla"),
     number: "₹3 Cr",
     label: "revenue loss identified",
     text: "Found by the Growth Audit, started August 2026.",
