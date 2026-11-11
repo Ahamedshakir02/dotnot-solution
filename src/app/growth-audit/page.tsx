@@ -299,10 +299,10 @@ function StepVisual({ i }: { i: number }) {
     );
   return (
     <div className="flex flex-col gap-2 rounded-xl border border-line bg-white p-3.5">
-      {[75, 60, 45].map((w) => (
-        <div key={w} className="flex items-center">
-          <span className="h-2 rounded bg-line" style={{ width: `${w}%` }} />
-          <Redacted className="ml-auto text-xs" />
+      {["Follow-ups by branch", "Month-end numbers", "Unused software"].map((t) => (
+        <div key={t} className="flex items-center gap-2">
+          <span className="truncate text-[11px] font-medium">{t}</span>
+          <Redacted className="ml-auto shrink-0 text-xs" />
         </div>
       ))}
     </div>
