@@ -3,13 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-/**
- * Scroll motion for the whole site, with no animation library.
- * - [data-reveal]   fades up when it scrolls into view
- * - [data-stagger]  its children fade up one after another
- * - [data-draw]     paths with class "draw" draw themselves; ".pop" and ".fade" follow
- * Styles live in globals.css and only apply when the visitor allows motion.
- */
+// data-reveal, data-stagger, data-draw (styles in globals.css)
 export function Motion() {
   const pathname = usePathname();
 

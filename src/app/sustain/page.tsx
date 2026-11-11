@@ -19,7 +19,7 @@ export default function SustainPage() {
   return (
     <>
       <main className="page-in">
-        {/* 01 Hero — health monitor */}
+        {/* 01 Hero */}
         <section data-draw className="relative overflow-hidden bg-paper">
           <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="wipe pointer-events-none absolute bottom-0 left-0 h-[110px] w-full" style={{ ["--dd" as string]: "300ms" }} aria-hidden>
             <polyline

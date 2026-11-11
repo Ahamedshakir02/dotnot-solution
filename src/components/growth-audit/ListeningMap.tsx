@@ -1,6 +1,5 @@
 import { Redacted } from "@/components/ui/Redacted";
 
-// Hero visual: every level of the business feeds into one priced report.
 const W = 640;
 const H = 640;
 const target = { x: 330, y: 420 };

@@ -1,6 +1,5 @@
 import { cn } from "@/lib/cn";
 
-/** A blurred-out amount for illustrative mocks, so no fake number is shown. */
 export function Redacted({ className, dark }: { className?: string; dark?: boolean }) {
   return (
     <span className={cn("inline-flex items-center gap-1 font-extrabold", dark ? "text-white" : "text-brand", className)}>

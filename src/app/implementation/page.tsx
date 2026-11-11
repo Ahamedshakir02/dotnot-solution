@@ -30,7 +30,7 @@ export default function ImplementationPage() {
   return (
     <>
       <main className="page-in">
-        {/* 01 Hero — blueprint */}
+        {/* 01 Hero */}
         <section
           className="relative overflow-hidden bg-[#0a2614] text-white"
           style={{
@@ -124,7 +124,6 @@ export default function ImplementationPage() {
               </span>
               <span className="text-xs font-bold tracking-[0.08em] text-muted uppercase md:ml-auto">Illustrative</span>
             </div>
-            {/* Phone: the curves are hidden, so say it in words */}
             <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[13px] font-bold md:hidden">
               <span className="text-brand">▲ Your team’s ownership grows</span>
               <span className="text-deep">▼ Dotnot’s role shrinks</span>

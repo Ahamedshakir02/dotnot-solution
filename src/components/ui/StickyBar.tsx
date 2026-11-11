@@ -1,6 +1,5 @@
 import { requirementLink } from "@/lib/site";
 
-/** Phone-only bottom bar: the one action, always in reach. */
 export function StickyBar() {
   return (
     <a

@@ -59,7 +59,6 @@ export function ChatBubbles({ lines, size = "md" }: { lines: ChatLine[]; size?: 
   );
 }
 
-/** A phone mock showing a WhatsApp-style conversation with Dotnot's AI advisor. */
 export function PhoneChat({
   title = "Dotnot Growth Audit",
   subtitle = "your private link",

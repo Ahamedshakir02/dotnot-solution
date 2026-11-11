@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Section, SectionHeader } from "@/components/ui/Section";
 
-// Add a `logo` path (in /public/clients) to any client when the logos arrive.
+// logo: "/clients/<file>"
 const industries: { name: string; clients: { name: string; logo?: string }[] }[] = [
   { name: "Retail", clients: [{ name: "Colors and Looms" }, { name: "Zeenath Textile" }, { name: "Eyenation" }, { name: "Safari Furniture" }, { name: "Al Rams" }] },
   { name: "Manufacturing", clients: [{ name: "Pearl City" }, { name: "Evergreen Furniture" }, { name: "An apparel manufacturer" }] },

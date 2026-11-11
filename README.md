@@ -1,7 +1,7 @@
 # Dotnot website
 
 The dotnot.solutions site: Home, Growth Audit, Implementation and Sustain.
-Design source: the Dotnot Figma file (Home — v3.1 and the "v3 — Other pages" section).
+Design source: the Dotnot Figma file (Home v3.1 and the "Other pages" frames).
 
 Built with Next.js (App Router), TypeScript and Tailwind CSS. Every page is static.
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Section, SectionHeader } from "@/components/ui/Section";
 
-// Add `photo` (in /public/team) when portraits are ready.
+// photo: "/team/<file>"
 const team: { initials: string; name: string; role: string; photo?: string }[] = [
   { initials: "MB", name: "Murshid Basil", role: "Chief Growth Architect" },
   { initials: "MN", name: "M Nasim", role: "Chief Business Architect" },

@@ -1,5 +1,3 @@
-// "Your business, before and after" card from the hero (concept C2).
-// Coordinates come from the Figma card (560 × 470).
 
 const W = 560;
 const H = 470;

@@ -12,7 +12,6 @@ const script: ChatLine[] = [
   { from: "user", text: "We bought a CRM last year. The team barely uses it." },
 ];
 
-/** The "See how it works" demo: plays the sample conversation once it scrolls into view. */
 export function ChatDemo() {
   const ref = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState(0);

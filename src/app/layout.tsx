@@ -17,7 +17,7 @@ const manrope = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Dotnot — Build a business that works better as it grows",
+    default: "Dotnot | Build a business that works better as it grows",
     template: "%s · Dotnot",
   },
   description:
@@ -37,7 +37,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={manrope.variable} suppressHydrationWarning>
       <head>
-        {/* Turn on motion styles before first paint; fall back to visible if the script never runs. */}
         <script
           dangerouslySetInnerHTML={{
             __html:

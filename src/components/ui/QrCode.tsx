@@ -1,6 +1,5 @@
 import QRCode from "qrcode";
 
-/** Renders a QR code as inline SVG at build time (no client JS). */
 export function QrCode({ value, size = 96, label }: { value: string; size?: number; label: string }) {
   const qr = QRCode.create(value, { errorCorrectionLevel: "M" });
   const n = qr.modules.size;

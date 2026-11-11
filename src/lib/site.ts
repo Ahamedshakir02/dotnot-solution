@@ -15,8 +15,7 @@ export const site = {
   legalName: "Dotnot Strategic Solutions",
 };
 
-// Every "Share your requirement" button goes through this.
-// TODO: swap for the requirement-agent link once it is shared.
+// TODO: replace with the requirement agent link
 const DEFAULT_MESSAGE = "Hi Dotnot, I'd like to share a requirement.";
 
 export function requirementLink(message: string = DEFAULT_MESSAGE) {

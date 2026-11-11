@@ -33,7 +33,6 @@ export function ButtonLink({
   );
 }
 
-/** The page's one action. Opens WhatsApp in a new tab. */
 export function ShareButton({
   label = "Share your requirement",
   variant = "lime",

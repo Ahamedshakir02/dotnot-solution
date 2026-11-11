@@ -45,7 +45,6 @@ export function Overline({ children, dark }: { children: ReactNode; dark?: boole
   );
 }
 
-/** Light first half, bold accent — the two-weight headline from the Content Bible. */
 export function SplitTitle({
   title,
   accent,
