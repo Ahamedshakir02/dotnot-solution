@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import { Ring, Section, SectionHeader } from "@/components/ui/Section";
+import { cn } from "@/lib/cn";
 
 const values = [
   ["Build, don’t just advise", "Our job ends when something works, not when a report is delivered."],
@@ -15,6 +19,7 @@ const values = [
 
 export function Values() {
   const [first, ...rest] = values;
+  const [all, setAll] = useState(false);
   return (
     <Section id="values" tone="paper">
       <SectionHeader overline="Our values" title="Ten things we hold ourselves to." accent="we hold ourselves to." />
@@ -33,7 +38,7 @@ export function Values() {
 
         <ol data-stagger className="grid gap-3 sm:grid-cols-2 md:gap-4 xl:grid-cols-3">
           {rest.map(([t, b], i) => (
-            <li key={t} className="lift flex flex-col gap-1.5 rounded-[20px] border border-line bg-white p-5 md:gap-2.5 md:p-6">
+            <li key={t} className={cn(!all && i >= 3 && "hidden md:flex", "lift flex flex-col gap-1.5 rounded-[20px] border border-line bg-white p-5 md:gap-2.5 md:p-6")}>
               <div className="flex items-baseline gap-2.5 md:flex-col md:gap-2.5">
                 <span className="text-[13px] font-extrabold text-brand">{String(i + 2).padStart(2, "0")}</span>
                 <h3 className="text-[17px] leading-6 font-bold md:text-lg">{t}</h3>
@@ -43,6 +48,15 @@ export function Values() {
           ))}
         </ol>
       </div>
+      {!all && (
+        <button
+          type="button"
+          onClick={() => setAll(true)}
+          className="mt-4 inline-flex items-center gap-2 rounded-full border-[1.5px] border-ink/15 bg-white px-5 py-3 text-[15px] font-bold text-ink md:hidden"
+        >
+          See all 10 values <span aria-hidden>↓</span>
+        </button>
+      )}
     </Section>
   );
 }
