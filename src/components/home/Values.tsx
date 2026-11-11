@@ -20,9 +20,9 @@ export function Values() {
       <SectionHeader overline="Our values" title="Ten things we hold ourselves to." accent="we hold ourselves to." />
 
       <div className="mt-10 grid gap-4 md:mt-14 lg:grid-cols-[384px_1fr]">
-        <div data-reveal className="bg-brand-gradient relative flex min-h-[320px] flex-col gap-4 overflow-hidden rounded-3xl p-8 text-white md:p-9">
+        <div data-reveal className="bg-brand-gradient relative flex min-h-[230px] flex-col gap-3 overflow-hidden rounded-3xl p-6 text-white md:min-h-[320px] md:gap-4 md:p-9">
           <Ring size={320} className="right-[-80px] bottom-[-120px] border-lime/25" />
-          <span aria-hidden className="text-outline-lime absolute top-[-20px] right-4 text-[200px] leading-none font-extrabold tracking-[-0.06em]">
+          <span aria-hidden className="text-outline-lime absolute top-[-20px] right-4 hidden text-[200px] md:block leading-none font-extrabold tracking-[-0.06em]">
             01
           </span>
           <div className="flex-1" />
@@ -31,11 +31,13 @@ export function Values() {
           <p className="text-[17px] leading-[26px] text-white/80">{first[1]}</p>
         </div>
 
-        <ol data-stagger className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <ol data-stagger className="grid gap-3 sm:grid-cols-2 md:gap-4 xl:grid-cols-3">
           {rest.map(([t, b], i) => (
-            <li key={t} className="lift flex flex-col gap-2.5 rounded-[20px] border border-line bg-white p-6">
-              <span className="text-[13px] font-extrabold text-brand">{String(i + 2).padStart(2, "0")}</span>
-              <h3 className="text-lg leading-6 font-bold">{t}</h3>
+            <li key={t} className="lift flex flex-col gap-1.5 rounded-[20px] border border-line bg-white p-5 md:gap-2.5 md:p-6">
+              <div className="flex items-baseline gap-2.5 md:flex-col md:gap-2.5">
+                <span className="text-[13px] font-extrabold text-brand">{String(i + 2).padStart(2, "0")}</span>
+                <h3 className="text-[17px] leading-6 font-bold md:text-lg">{t}</h3>
+              </div>
               <p className="text-sm leading-[21px] text-muted">{b}</p>
             </li>
           ))}
