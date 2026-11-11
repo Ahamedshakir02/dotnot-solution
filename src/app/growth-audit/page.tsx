@@ -34,7 +34,7 @@ export default function GrowthAuditPage() {
           <div className="container-x relative grid items-center gap-10 pt-6 pb-16 lg:grid-cols-[1fr_600px] lg:gap-8 lg:pb-24">
             <div data-stagger className="flex flex-col gap-6">
               <p className="text-[13px] font-medium text-white/55">
-                <Link href="/" className="hover:text-white">Home</Link> / Growth Audit
+                <Link href="/" className="-my-2 inline-block py-2 hover:text-white">Home</Link> / Growth Audit
               </p>
               <SplitTitle
                 as="h1"

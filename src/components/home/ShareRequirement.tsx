@@ -63,17 +63,17 @@ export function ShareRequirement() {
             </p>
             <ul className="flex flex-wrap gap-2 text-xs font-semibold">
               <li>
-                <a href={whatsappLink(site.phones.india.wa)} target="_blank" rel="noopener noreferrer" className="block rounded-full bg-white/10 px-3 py-1.5 hover:bg-white/20">
+                <a href={whatsappLink(site.phones.india.wa)} target="_blank" rel="noopener noreferrer" className="block rounded-full bg-white/10 px-3.5 py-2.5 hover:bg-white/20">
                   WhatsApp {site.phones.india.label}
                 </a>
               </li>
               <li>
-                <a href={whatsappLink(site.phones.uae.wa)} target="_blank" rel="noopener noreferrer" className="block rounded-full bg-white/10 px-3 py-1.5 hover:bg-white/20">
+                <a href={whatsappLink(site.phones.uae.wa)} target="_blank" rel="noopener noreferrer" className="block rounded-full bg-white/10 px-3.5 py-2.5 hover:bg-white/20">
                   WhatsApp {site.phones.uae.label}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${site.email}`} className="block rounded-full bg-white/10 px-3 py-1.5 hover:bg-white/20">
+                <a href={`mailto:${site.email}`} className="block rounded-full bg-white/10 px-3.5 py-2.5 hover:bg-white/20">
                   {site.email}
                 </a>
               </li>

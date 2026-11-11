@@ -106,7 +106,7 @@ export function WhatWeOffer() {
                 <Tick size={20} />
                 {s.get}
               </p>
-              <Link href={s.href} className="text-sm font-bold text-brand hover:underline">
+              <Link href={s.href} className="-my-2 w-fit py-2 text-sm font-bold text-brand hover:underline">
                 Read more about {s.name} →
               </Link>
             </div>

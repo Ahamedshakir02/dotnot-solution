@@ -43,7 +43,7 @@ export function GrowthAuditTeaser() {
             </li>
           ))}
         </ol>
-        <Link href="/growth-audit" className="w-fit text-[15px] font-bold text-lime hover:underline">
+        <Link href="/growth-audit" className="-my-2 w-fit py-2 text-[15px] font-bold text-lime hover:underline">
           How the Growth Audit works →
         </Link>
       </div>

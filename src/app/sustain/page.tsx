@@ -28,7 +28,7 @@ export default function SustainPage() {
           <div className="container-x relative grid items-center gap-12 pt-6 pb-16 lg:grid-cols-[1fr_560px] lg:pb-28">
             <div data-stagger className="flex flex-col gap-6">
               <p className="text-[13px] font-medium text-muted">
-                <Link href="/" className="hover:text-ink">Home</Link> / Sustain
+                <Link href="/" className="-my-2 inline-block py-2 hover:text-ink">Home</Link> / Sustain
               </p>
               <SplitTitle
                 as="h1"

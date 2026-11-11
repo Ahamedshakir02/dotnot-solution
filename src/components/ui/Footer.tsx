@@ -27,9 +27,9 @@ export function Footer() {
           </div>
 
           <FooterCol title="Links" className="col-span-2 md:col-span-1">
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2.5">
+            <div className="grid grid-cols-2 gap-x-6">
               {links.map((l) => (
-                <Link key={l.href} href={l.href} className="text-[15px] font-medium text-white/85 hover:text-lime">
+                <Link key={l.href} href={l.href} className="py-1.5 text-[15px] font-medium text-white/85 hover:text-lime">
                   {l.label}
                 </Link>
               ))}
@@ -37,13 +37,13 @@ export function Footer() {
           </FooterCol>
 
           <FooterCol title="Contact">
-            <a href={`mailto:${site.email}`} className="text-[14px] font-medium break-all text-white/85 hover:text-lime md:text-[15px]">
+            <a href={`mailto:${site.email}`} className="py-1 text-[14px] font-medium break-all text-white/85 hover:text-lime md:text-[15px]">
               {site.email}
             </a>
-            <a href={whatsappLink(site.phones.india.wa)} target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-white/85 hover:text-lime md:text-[15px]">
+            <a href={whatsappLink(site.phones.india.wa)} target="_blank" rel="noopener noreferrer" className="py-1 text-[14px] font-medium text-white/85 hover:text-lime md:text-[15px]">
               {site.phones.india.label}
             </a>
-            <a href={whatsappLink(site.phones.uae.wa)} target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-white/85 hover:text-lime md:text-[15px]">
+            <a href={whatsappLink(site.phones.uae.wa)} target="_blank" rel="noopener noreferrer" className="py-1 text-[14px] font-medium text-white/85 hover:text-lime md:text-[15px]">
               {site.phones.uae.label}
             </a>
           </FooterCol>
@@ -71,7 +71,7 @@ export function Footer() {
 
 function FooterCol({ title, className, children }: { title: string; className?: string; children: React.ReactNode }) {
   return (
-    <div className={`flex flex-col gap-2.5 ${className ?? ""}`}>
+    <div className={`flex flex-col gap-1 ${className ?? ""}`}>
       <p className="text-xs font-bold tracking-[0.1em] text-lime uppercase">{title}</p>
       {children}
     </div>
