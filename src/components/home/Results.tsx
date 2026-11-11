@@ -1,4 +1,5 @@
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { ScrollRail } from "@/components/ui/ScrollRail";
 
 const cases = [
   {
@@ -37,7 +38,7 @@ export function Results() {
     <Section id="results">
       <SectionHeader overline="Results" title="What changes when the business is diagnosed first." accent="is diagnosed first." />
 
-      <ul data-stagger className="no-scrollbar -mx-5 mt-10 flex snap-x scroll-px-5 gap-4 overflow-x-auto px-5 md:mx-0 md:mt-14 md:grid md:grid-cols-3 md:gap-6 md:px-0">
+      <ScrollRail className="no-scrollbar -mx-5 mt-10 flex gap-4 overflow-x-auto px-5 md:mx-0 md:mt-14 md:grid md:grid-cols-3 md:gap-6 md:px-0">
         {cases.map((c) => (
           <li key={c.client} className="lift flex w-[300px] shrink-0 snap-start flex-col gap-5 rounded-3xl border border-line p-6 md:w-auto md:p-7">
             <div>
@@ -59,7 +60,7 @@ export function Results() {
             <p className="text-[15px] leading-6 text-muted">{c.did}</p>
           </li>
         ))}
-      </ul>
+      </ScrollRail>
 
       <ul data-stagger className="mt-6 grid gap-4 md:grid-cols-2">
         {inProgress.map((p) => (

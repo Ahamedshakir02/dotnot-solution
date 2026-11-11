@@ -1,5 +1,6 @@
 import { Section, SectionHeader, Tick } from "@/components/ui/Section";
 import { comparison } from "./comparison";
+import { ScrollRail } from "@/components/ui/ScrollRail";
 import { CompareStack } from "./CompareStack";
 
 const five: { t: string; b: string; p?: string }[] = [
@@ -60,7 +61,7 @@ export function HowWeDiffer() {
       {/* Phone: every row, all three at once */}
       <CompareStack />
 
-      <ol data-stagger className="no-scrollbar -mx-5 mt-8 flex snap-x scroll-px-5 gap-3 overflow-x-auto px-5 md:mx-0 md:mt-10 md:grid md:grid-cols-5 md:gap-4 md:px-0">
+      <ScrollRail as="ol" className="no-scrollbar -mx-5 mt-8 flex gap-3 overflow-x-auto px-5 md:mx-0 md:mt-10 md:grid md:grid-cols-5 md:gap-4 md:px-0">
         {five.map((f, i) => (
           <li key={f.t} className="lift flex w-[280px] shrink-0 snap-start flex-col gap-3 rounded-[20px] border border-line bg-white p-6 md:w-auto">
             <span className="w-fit rounded-lg bg-tint px-2.5 py-1 text-sm font-semibold text-gtext">{String(i + 1).padStart(2, "0")}</span>
@@ -77,7 +78,7 @@ export function HowWeDiffer() {
             )}
           </li>
         ))}
-      </ol>
+      </ScrollRail>
     </Section>
   );
 }
