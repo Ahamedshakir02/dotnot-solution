@@ -84,10 +84,10 @@ export function ListeningMap() {
           <span className="text-[11px] font-bold sm:text-sm">Growth Audit report</span>
           <span className="ml-auto text-[10px] font-bold text-brand sm:text-[11px]">Sample</span>
         </div>
-        {["Follow-ups left to memory", "Numbers only at month-end", "Software the team barely uses"].map((t) => (
-          <div key={t} className="flex items-center gap-2 border-t border-line pt-2">
-            <span className="min-w-0 truncate text-[9px] font-medium sm:text-xs">{t}</span>
-            <Redacted className="ml-auto shrink-0 text-[10px] sm:text-[13px]" />
+        {[150, 120, 90].map((w) => (
+          <div key={w} className="flex items-center gap-2 border-t border-line pt-2">
+            <span className="h-2 rounded bg-line" style={{ width: `${(w / 280) * 100}%` }} />
+            <Redacted className="ml-auto text-[10px] sm:text-[13px]" />
           </div>
         ))}
       </div>

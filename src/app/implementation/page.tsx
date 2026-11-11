@@ -277,10 +277,10 @@ function BuildMock({ i }: { i: number }) {
     return (
       <div className="flex flex-col gap-2 rounded-xl bg-white p-4">
         <span className="text-xs font-bold">SOP · Handling an enquiry</span>
-        {["Log it in the CRM", "Assign an owner", "Follow up in two days", "Close or hand over"].map((t, k) => (
-          <span key={t} className="flex items-center gap-2">
-            <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full bg-tint2 text-[9px] font-bold text-gtext">{k + 1}</span>
-            <span className="truncate text-[11px] text-muted">{t}</span>
+        {[70, 55, 80, 45].map((w, k) => (
+          <span key={k} className="flex items-center gap-2">
+            <span className="flex h-[18px] w-[18px] items-center justify-center rounded-full bg-tint2 text-[9px] font-bold text-gtext">{k + 1}</span>
+            <span className="h-[7px] rounded bg-line" style={{ width: `${w}%` }} />
           </span>
         ))}
       </div>
@@ -289,15 +289,15 @@ function BuildMock({ i }: { i: number }) {
     return (
       <div className="flex gap-2">
         {[
-          ["New", ["Sofa", "Bed", "Table"]],
-          ["Follow-up", ["Chairs", "Desk"]],
-          ["Won", ["Sofa"]],
-        ].map(([c, items]) => (
-          <div key={c as string} className="flex min-w-0 flex-1 flex-col gap-1.5 rounded-lg bg-white p-2">
+          ["New", 3],
+          ["Follow-up", 2],
+          ["Won", 1],
+        ].map(([c, n]) => (
+          <div key={c} className="flex flex-1 flex-col gap-1.5 rounded-lg bg-white p-2">
             <span className="text-[9px] font-bold tracking-[0.06em] text-muted uppercase">{c}</span>
-            {(items as string[]).map((t, k) => (
-              <span key={k} className={cn("block truncate rounded-md px-2 py-1.5 text-[10px] font-medium", c === "Won" ? "bg-tint2" : "bg-paper")}>
-                {t}
+            {Array.from({ length: n as number }).map((_, k) => (
+              <span key={k} className={cn("block rounded-md p-2", c === "Won" ? "bg-tint2" : "bg-paper")}>
+                <span className="block h-1.5 w-3/4 rounded bg-line" />
               </span>
             ))}
           </div>
