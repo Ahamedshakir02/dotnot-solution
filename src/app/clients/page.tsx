@@ -99,7 +99,6 @@ export default function ClientsPage() {
           <div className="mt-8 md:mt-14">
             <IndustryCards />
           </div>
-          <p className="mt-5 text-[15px] font-semibold text-muted md:mt-6">…and more.</p>
         </Section>
 
         <ClosingCta
