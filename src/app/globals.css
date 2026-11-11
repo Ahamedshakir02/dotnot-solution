@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Dotnot v3 tokens — mirror the "Dotnot v3 / Color" variables in Figma */
+@theme {
+  --color-brand: #218a43;
+  --color-deep: #0e3b1d;
+  --color-night: #082213;
+  --color-lime: #86cc59;
+  --color-gtext: #17652f;
+  --color-ink: #101010;
+  --color-muted: #5f6863;
+  --color-paper: #f5f7f4;
+  --color-tint: #eef6e8;
+  --color-tint2: #dcefd0;
+  --color-line: #dadfda;
+  --color-forest: #06130b;
+  --color-coal: #0b0f0d;
+  --color-chat: #e8eee4;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee 45s linear infinite;
+  --animate-rise: rise 0.5s ease-out both;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-ink antialiased;
+  }
+  [id] {
+    scroll-margin-top: 16px;
+  }
+  ::selection {
+    background: var(--color-lime);
+    color: var(--color-ink);
+  }
+}
+
+@utility container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1440px;
+  padding-inline: 20px;
+  @media (width >= 768px) {
+    padding-inline: 48px;
+  }
+  @media (width >= 1280px) {
+    padding-inline: 120px;
+  }
+}
+
+/* Deep-green gradient used on the hero, Growth Audit and Share sections */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(135deg, #082213 0%, #0e3b1d 55%, #1f7a3d 100%);
+}
+
+@utility bg-coal-gradient {
+  background-image: linear-gradient(90deg, #0b0f0d 0%, #1b231e 100%);
+}
+
+/* Outlined display type, like the numerals in the Content Bible */
+@utility text-outline-lime {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgb(134 204 89 / 0.3);
+}
+
+@utility text-outline-green {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgb(33 138 67 / 0.2);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-rise {
+    animation: none;
+  }
+}
