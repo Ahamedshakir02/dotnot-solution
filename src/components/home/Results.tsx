@@ -21,16 +21,11 @@ const cases = [
   {
     client: "Apparel manufacturer",
     sector: "Manufacturing · India",
-    number: "≈₹3 Cr",
-    label: "found by the Growth Audit",
-    bars: [26, 88],
-    did: "Growth Audit, started August 2026.",
+    number: "₹3 Cr",
+    label: "revenue loss identified",
+    bars: [],
+    did: "Found by the Growth Audit, started August 2026.",
   },
-];
-
-const inProgress = [
-  { name: "Lead management system · Safari Mall Leasing", text: "Building the fix the audit pointed to. We diagnose before we build.", status: "In progress" },
-  { name: "Evergreen Furniture", text: "Ongoing work.", status: "Ongoing" },
 ];
 
 export function Results() {
@@ -46,12 +41,25 @@ export function Results() {
               <h3 className="mt-1 text-[22px] font-bold">{c.client}</h3>
             </div>
             <div className="flex items-end gap-3 rounded-2xl bg-tint p-5">
-              {c.bars.map((h, k) => (
-                <span key={k} className="flex flex-col items-center gap-1.5">
-                  <span className="block w-8 rounded-lg" style={{ height: h, background: k ? "#218A43" : "#DADFDA" }} />
-                  <span className="text-[11px] font-medium text-muted">{k ? "After" : "Before"}</span>
+              {c.bars.length ? (
+                c.bars.map((h, k) => (
+                  <span key={k} className="flex flex-col items-center gap-1.5">
+                    <span className="block w-8 rounded-lg" style={{ height: h, background: k ? "#218A43" : "#DADFDA" }} />
+                    <span className="text-[11px] font-medium text-muted">{k ? "After" : "Before"}</span>
+                  </span>
+                ))
+              ) : (
+                // a loss the audit found: revenue with the lost part marked
+                <span className="flex flex-col gap-1.5" aria-hidden>
+                  <span className="flex h-[88px] w-[72px] flex-col overflow-hidden rounded-lg">
+                    <span className="flex flex-1 items-center justify-center border-2 border-dashed border-[#d64545] bg-[#d64545]/10 text-[10px] font-bold text-[#b33a3a]">
+                      lost
+                    </span>
+                    <span className="h-[52px] bg-[#218A43]" />
+                  </span>
+                  <span className="text-[11px] font-medium text-muted">Revenue</span>
                 </span>
-              ))}
+              )}
               <span className="ml-auto flex flex-col items-end text-right">
                 <span className="text-[38px] leading-none font-extrabold tracking-[-0.03em] text-brand">{c.number}</span>
                 <span className="mt-1 max-w-[130px] text-[13px] font-medium">{c.label}</span>
@@ -61,19 +69,6 @@ export function Results() {
           </li>
         ))}
       </ScrollRail>
-
-      <ul data-stagger className="mt-6 grid gap-4 md:grid-cols-2">
-        {inProgress.map((p) => (
-          <li key={p.name} className="grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-2.5 rounded-2xl bg-paper px-5 py-4 sm:flex sm:px-6 sm:py-5">
-            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-lime" />
-            <span className="flex flex-col">
-              <span className="text-[15px] font-semibold">{p.name}</span>
-              <span className="text-sm text-muted">{p.text}</span>
-            </span>
-            <span className="col-start-2 w-fit shrink-0 rounded-full border border-line bg-white px-3 py-1.5 text-xs font-bold text-gtext sm:ml-auto">{p.status}</span>
-          </li>
-        ))}
-      </ul>
     </Section>
   );
 }
