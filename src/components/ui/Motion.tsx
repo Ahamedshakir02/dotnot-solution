@@ -8,7 +8,9 @@ export function Motion() {
   const pathname = usePathname();
 
   useEffect(() => {
-    (window as Window & { __dnMotion?: () => void }).__dnMotion?.();
+    // one frame after React has started, so line drawings get a free main thread
+    const id = requestAnimationFrame(() => (window as Window & { __dnMotion?: () => void }).__dnMotion?.());
+    return () => cancelAnimationFrame(id);
   }, [pathname]);
 
   return null;
