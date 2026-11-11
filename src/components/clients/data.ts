@@ -38,6 +38,13 @@ export const mixed: Client[] = Array.from({ length: Math.max(...industries.map((
 ).flat();
 export const mixedWithLogo = mixed.filter((c) => c.logo);
 
+/** Best-known clients first, then the rest mixed across industries. Used where logos are ranked, like the phone pyramid. */
+const best = ["Evergreen Furniture", "Safari Mall Leasing", "Sravana Hearing Aid", "Farfalla"];
+export const byFame: Client[] = [
+  ...best.flatMap((n) => allClients.filter((c) => c.name === n)),
+  ...mixed.filter((c) => !best.includes(c.name)),
+];
+
 const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
 /** "seven", for copy like "across seven industries". */
 export const industryWord = words[industries.length] ?? String(industries.length);

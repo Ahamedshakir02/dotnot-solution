@@ -3,9 +3,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ClientLogo, LogoStack, NoLogo } from "@/components/clients/ClientLogo";
-import { allClients, industries, industryWord, mixed, mixedWithLogo, stories } from "@/components/clients/data";
+import { ClientLogo, NoLogo } from "@/components/clients/ClientLogo";
+import { allClients, byFame, industries, industryWord, stories } from "@/components/clients/data";
 import { Ring, Section, SectionHeader } from "@/components/ui/Section";
+
+// Phone: logos as a pyramid, best-known clients biggest on top, nothing overlapping.
+const pyramid = [
+  { row: byFame.slice(0, 4), width: "max-w-[248px]" },
+  { row: byFame.slice(4, 10), width: "max-w-[290px]" },
+  { row: byFame.slice(10), width: "max-w-[310px]" },
+];
+function LogoPyramid() {
+  return (
+    <div data-stagger className="flex w-full flex-col items-center gap-2.5">
+      {pyramid.map(({ row, width }, r) => (
+        <ul key={r} className={`grid w-full gap-2 ${width}`} style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}>
+          {row.map((c) => (
+            <li key={c.name} title={c.name} className="aspect-square overflow-hidden rounded-full border border-line bg-white">
+              <ClientLogo c={c} size={64} className="h-full w-full" />
+              <span className="sr-only">{c.name}</span>
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  );
+}
 
 function Spotlight() {
   const [i, setI] = useState(0);
@@ -143,7 +166,7 @@ export function Clientele() {
             <p className="mt-2 font-medium text-muted">clients across {industries.length} industries</p>
           </div>
           <ul data-stagger className="grid grid-cols-4 gap-3">
-            {mixedWithLogo.slice(0, 11).map((c) => (
+            {byFame.slice(0, 11).map((c) => (
               <li key={c.name} title={c.name} className="flex aspect-square items-center justify-center rounded-[18px] border border-line bg-white">
                 <ClientLogo c={c} size={64} className="h-[64%] w-[64%] rounded-xl" />
               </li>
@@ -167,13 +190,13 @@ export function Clientele() {
         </div>
 
         {/* Phone and tablet: the small trust strip under the spotlight */}
-        <div data-reveal className="flex flex-col gap-4 rounded-3xl border border-line bg-white p-5 shadow-[0_10px_30px_rgba(13,51,26,0.06)] lg:hidden">
-          <LogoStack list={mixed} max={6} size="h-11 w-11" />
+        <div data-reveal className="flex flex-col items-center gap-4 rounded-3xl border border-line bg-white p-5 text-center shadow-[0_10px_30px_rgba(13,51,26,0.06)] lg:hidden">
+          <LogoPyramid />
           <p className="text-2xl leading-[30px] font-light tracking-[-0.02em]">
             Trusted by <span className="font-extrabold text-gtext">15+ growing businesses</span>
           </p>
           <p className="-mt-1 text-sm leading-[21px] font-medium text-muted">Retail, manufacturing, restaurants, agencies, healthcare, education, travel and kidswear.</p>
-          <Link href="/clients" className="mt-1 flex items-center justify-center gap-2.5 rounded-full bg-ink px-6 py-4 text-[15px] font-bold text-white">
+          <Link href="/clients" className="mt-1 flex w-full items-center justify-center gap-2.5 rounded-full bg-ink px-6 py-4 text-[15px] font-bold text-white">
             See all clients <span aria-hidden className="text-lime">→</span>
           </Link>
         </div>
