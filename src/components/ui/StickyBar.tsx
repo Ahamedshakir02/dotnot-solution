@@ -59,6 +59,9 @@ export function StickyBar() {
 
   const scoring = !!check?.active;
   const ticked = check && check.score > 0 ? check.score : 0;
+  // after the checklist, keep the visitor's result: ring, "You ticked N of 10" and the verdict once it means something
+  const remembered = !scoring && ticked > 0;
+  const withRing = scoring || remembered;
 
   return (
     <a
@@ -69,16 +72,19 @@ export function StickyBar() {
       tabIndex={heroOn ? -1 : undefined}
       className={cn(
         "fixed inset-x-4 bottom-4 z-40 flex items-center gap-3 rounded-full py-2.5 pr-2.5 text-white shadow-[0_8px_24px_rgba(0,0,0,0.25)] transition-[translate,opacity,background-color,padding] duration-300 md:hidden",
-        scoring ? "bg-deep pl-2.5" : "bg-ink pl-5",
+        scoring ? "bg-deep" : "bg-ink",
+        withRing ? "pl-2.5" : "pl-5",
         heroOn ? "pointer-events-none translate-y-[140%] opacity-0" : "translate-y-0 opacity-100",
       )}
     >
-      {scoring && <MiniGauge score={check!.score} />}
+      {withRing && <MiniGauge score={check!.score} />}
       <span className="flex min-w-0 flex-col leading-tight">
         <span className={cn("text-[11px] font-medium", scoring ? "text-lime" : "text-white/70")}>
           {scoring ? `${check!.score} of 10 ticked` : ticked ? `You ticked ${ticked} of 10` : "5 minutes, text or voice"}
         </span>
-        <span className="line-clamp-2 text-sm leading-[18px] font-bold">{scoring ? check!.title : "Tell us what’s slowing you"}</span>
+        <span className="line-clamp-2 text-sm leading-[18px] font-bold">
+          {scoring || (remembered && ticked >= 5) ? check!.title : "Tell us what’s slowing you"}
+        </span>
       </span>
       <span className="ml-auto shrink-0 rounded-full bg-lime px-4 py-3 text-sm font-bold text-ink">Share →</span>
       <span className="sr-only" aria-live="polite">
