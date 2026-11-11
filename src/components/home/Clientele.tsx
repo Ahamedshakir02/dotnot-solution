@@ -9,15 +9,16 @@ import { Ring, Section, SectionHeader } from "@/components/ui/Section";
 
 // Phone: logos as a pyramid, best-known clients biggest on top, nothing overlapping.
 const pyramid = [
-  { row: byFame.slice(0, 4), width: "max-w-[248px]" },
-  { row: byFame.slice(4, 10), width: "max-w-[290px]" },
-  { row: byFame.slice(10), width: "max-w-[310px]" },
+  { row: byFame.slice(0, 4), width: "max-w-[312px] gap-2" },
+  { row: byFame.slice(4, 10), width: "gap-1.5" },
+  { row: byFame.slice(10), width: "gap-1.5" },
 ];
 function LogoPyramid() {
   return (
-    <div data-stagger className="flex w-full flex-col items-center gap-2.5">
+    // a little wider than the card's text, using some of its side padding, so the logos can be bigger
+    <div data-stagger className="-mx-2 flex w-[calc(100%+16px)] flex-col items-center gap-2">
       {pyramid.map(({ row, width }, r) => (
-        <ul key={r} className={`grid w-full gap-2 ${width}`} style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}>
+        <ul key={r} className={`grid w-full ${width}`} style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}>
           {row.map((c) => (
             <li key={c.name} title={c.name} className="aspect-square overflow-hidden rounded-full border border-line bg-white">
               <ClientLogo c={c} size={64} className="h-full w-full" />
