@@ -30,6 +30,7 @@ export const navLinks = [
   { label: "Growth Audit", href: "/growth-audit" },
   { label: "Implementation", href: "/implementation" },
   { label: "Sustain", href: "/sustain" },
+  { label: "Clients", href: "/clients" },
   { label: "Results", href: "/#results" },
   { label: "Team", href: "/#team" },
 ];
