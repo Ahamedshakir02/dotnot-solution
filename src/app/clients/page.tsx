@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClientLogo, LogoStack, NoLogo } from "@/components/clients/ClientLogo";
 import { IndustryCards } from "@/components/clients/IndustryCards";
-import { allClients, industries, stories } from "@/components/clients/data";
+import { industries, industryWord, mixed, stories } from "@/components/clients/data";
 import { ShareButton } from "@/components/ui/Button";
 import { ClosingCta } from "@/components/ui/ClosingCta";
 import { Footer } from "@/components/ui/Footer";
@@ -38,13 +38,13 @@ export default function ClientsPage() {
                 className="text-[42px] leading-[46px] md:text-[72px] md:leading-[75px]"
               />
               <p className="max-w-[540px] text-base leading-relaxed text-white/80 md:text-[19px] md:leading-[30px]">
-                15+ growing businesses across six industries. Find yours below and see who we work with.
+                15+ growing businesses across {industryWord} industries. Find yours below and see who we work with.
               </p>
               <ShareButton className="self-start" />
             </div>
 
             <div data-reveal className="flex flex-col gap-5 rounded-3xl border border-white/15 bg-white/[0.06] p-6 md:p-8">
-              <LogoStack list={allClients} max={6} size="h-12 w-12 ring-deep" />
+              <LogoStack list={mixed} max={6} size="h-12 w-12 ring-deep" />
               <dl className="grid grid-cols-3 gap-4">
                 {[
                   ["15+", "clients"],

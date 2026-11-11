@@ -12,6 +12,7 @@ export const industries: { name: string; clients: Client[] }[] = [
       { name: "Eyenation", logo: L("eyenation") },
       { name: "Safari Furniture", logo: L("safari-furniture") },
       { name: "Al Rams", logo: L("al-rams") },
+      { name: "Safari Mall Leasing", logo: L("safari-mall") },
     ],
   },
   {
@@ -26,10 +27,21 @@ export const industries: { name: string; clients: Client[] }[] = [
   { name: "Agencies", clients: [{ name: "Tale8", logo: L("tale8") }, { name: "Beyo", logo: L("beyo") }] },
   { name: "Healthcare", clients: [{ name: "Sravana Hearing Aid", logo: L("sravana") }] },
   { name: "Education and travel", clients: [{ name: "Edu Wisdom", logo: L("edu-wisdom") }, { name: "Europe Travels", logo: L("europe-travels") }] },
+  { name: "Kidswear", clients: [{ name: "Farfalla", logo: L("farfalla") }] },
 ];
 
 export const allClients = industries.flatMap((ind) => ind.clients);
 export const withLogo = allClients.filter((c) => c.logo);
+
+/** One client from each industry in turn, so short previews show the spread, not just retail. */
+export const mixed: Client[] = Array.from({ length: Math.max(...industries.map((i) => i.clients.length)) }, (_, r) =>
+  industries.flatMap((ind) => (ind.clients[r] ? [ind.clients[r]] : [])),
+).flat();
+export const mixedWithLogo = mixed.filter((c) => c.logo);
+
+const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+/** "seven", for copy like "across seven industries". */
+export const industryWord = words[industries.length] ?? String(industries.length);
 
 export const stories = [
   {
