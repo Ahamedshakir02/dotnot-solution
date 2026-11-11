@@ -1,12 +1,13 @@
 import { Nav } from "@/components/ui/Nav";
 import { ShareButton } from "@/components/ui/Button";
 import { Ring } from "@/components/ui/Section";
+import { industries } from "@/components/clients/data";
 import { GrowthCurve } from "./GrowthCurve";
 
 const stats = [
   { value: "15+", label: "clients" },
   { value: "10M+", label: "profit impact" },
-  { value: "6", label: "industries" },
+  { value: String(industries.length), label: "industries" },
   { value: "Any language", label: "voice or text" },
 ];
 
