@@ -59,7 +59,7 @@ export function Footer() {
           </FooterCol>
         </div>
 
-        <p aria-hidden className="text-outline-lime mt-10 text-[44px] leading-[0.95] font-extrabold tracking-[-0.05em] whitespace-nowrap select-none sm:text-[80px] lg:text-[112px] xl:text-[128px]">
+        <p aria-hidden className="text-logo-gradient mt-10 w-fit pb-[0.08em] text-[44px] leading-[0.95] font-extrabold tracking-[-0.05em] whitespace-nowrap select-none sm:text-[80px] lg:text-[112px] xl:text-[128px]">
           Grow forward.
         </p>
 
