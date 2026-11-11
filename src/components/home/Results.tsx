@@ -39,7 +39,7 @@ export function Results() {
 
       <ul data-stagger className="no-scrollbar -mx-5 mt-10 flex snap-x scroll-px-5 gap-4 overflow-x-auto px-5 md:mx-0 md:mt-14 md:grid md:grid-cols-3 md:gap-6 md:px-0">
         {cases.map((c) => (
-          <li key={c.client} className="flex w-[300px] shrink-0 snap-start flex-col gap-5 rounded-3xl border border-line p-6 md:w-auto md:p-7">
+          <li key={c.client} className="lift flex w-[300px] shrink-0 snap-start flex-col gap-5 rounded-3xl border border-line p-6 md:w-auto md:p-7">
             <div>
               <p className="text-xs font-semibold tracking-[0.1em] text-brand uppercase">{c.sector}</p>
               <h3 className="mt-1 text-[22px] font-bold">{c.client}</h3>

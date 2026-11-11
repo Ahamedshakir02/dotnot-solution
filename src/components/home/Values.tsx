@@ -33,7 +33,7 @@ export function Values() {
 
         <ol data-stagger className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {rest.map(([t, b], i) => (
-            <li key={t} className="flex flex-col gap-2.5 rounded-[20px] border border-line bg-white p-6">
+            <li key={t} className="lift flex flex-col gap-2.5 rounded-[20px] border border-line bg-white p-6">
               <span className="text-[13px] font-extrabold text-brand">{String(i + 2).padStart(2, "0")}</span>
               <h3 className="text-lg leading-6 font-bold">{t}</h3>
               <p className="text-sm leading-[21px] text-muted">{b}</p>

@@ -62,7 +62,7 @@ export function HowWeDiffer() {
 
       <ol data-stagger className="no-scrollbar -mx-5 mt-8 flex snap-x scroll-px-5 gap-3 overflow-x-auto px-5 md:mx-0 md:mt-10 md:grid md:grid-cols-5 md:gap-4 md:px-0">
         {five.map((f, i) => (
-          <li key={f.t} className="flex w-[280px] shrink-0 snap-start flex-col gap-3 rounded-[20px] border border-line bg-white p-6 md:w-auto">
+          <li key={f.t} className="lift flex w-[280px] shrink-0 snap-start flex-col gap-3 rounded-[20px] border border-line bg-white p-6 md:w-auto">
             <span className="w-fit rounded-lg bg-tint px-2.5 py-1 text-sm font-semibold text-gtext">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="text-[19px] leading-[26px] font-semibold">{f.t}</h3>
             <p className="text-[15px] leading-6 text-muted">{f.b}</p>

@@ -157,7 +157,7 @@ export default function SustainPage() {
 
 function Promise({ n, title, text, dark, children }: { n: string; title: string; text: string; dark?: boolean; children: React.ReactNode }) {
   return (
-    <li className={cn("flex flex-col overflow-hidden rounded-3xl", dark ? "bg-brand-gradient text-white" : "border border-line bg-white")}>
+    <li className={cn("lift flex flex-col overflow-hidden rounded-3xl", dark ? "bg-brand-gradient text-white" : "border border-line bg-white")}>
       <div className="flex min-h-[170px] flex-col justify-center gap-2 p-6" aria-hidden>
         {children}
       </div>

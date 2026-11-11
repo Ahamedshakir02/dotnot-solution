@@ -146,7 +146,7 @@ export default function ImplementationPage() {
               { name: "Dashboards", text: "Numbers every week, not at month-end." },
               { name: "Custom tools", text: "Built for how you already work." },
             ].map((b, i) => (
-              <li key={b.name} className="flex flex-col overflow-hidden rounded-3xl border border-line bg-white">
+              <li key={b.name} className="lift flex flex-col overflow-hidden rounded-3xl border border-line bg-white">
                 <div className="flex h-[200px] flex-col justify-center bg-tint p-5" aria-hidden>
                   <BuildMock i={i} />
                 </div>
